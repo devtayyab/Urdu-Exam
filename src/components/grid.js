@@ -4,8 +4,9 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import img from "../images/rait.jpg";
 import { Button } from "@material-ui/core";
-import img1 from '../images/splash.jpg'
+import img1 from '../images/first.jpg'
 import Slide from 'react-reveal/Slide';
+import Bounce from 'react-reveal/Bounce';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,8 +25,9 @@ export default function Griditem() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-<Slide right>
+
         <Grid item xs={12} sm={6}>
+        <Slide right>
           <Paper className={classes.paper}
            style={{
             backgroundImage: `url(${img1})`,
@@ -33,6 +35,8 @@ export default function Griditem() {
             backgroundSize: 'cover'
           }}
           >
+           
+ <Bounce bottom>
             <p
               style={{
                 color: "white",
@@ -42,14 +46,17 @@ export default function Griditem() {
               prose and literary history. Play Urdu Quiz and check your
               knowledge about Urdu!
             </p>
+            </Bounce>
             <Button variant="contained" color='#333'>
               QUIZ
             </Button>
           </Paper>
+          </Slide>
         </Grid>
-        </Slide>
-        <Slide left>
+        
+        
         <Grid item xs={12} sm={6}>
+        <Slide left>
           <Paper
             className={classes.paper}
             style={{
@@ -58,6 +65,7 @@ export default function Griditem() {
               backgroundSize: 'cover'
             }}
           >
+             <Bounce bottom>
             <p
               style={{
                 color: "white",
@@ -67,12 +75,14 @@ export default function Griditem() {
               prose and literary history. Play Urdu Quiz and check your
               knowledge about Urdu!
             </p>
+            </Bounce>
             <Button variant="contained" color='#333'>
               Online Class
             </Button>
           </Paper>
+          </Slide>
         </Grid>
-        </Slide>
+        
       </Grid>
     </div>
   );

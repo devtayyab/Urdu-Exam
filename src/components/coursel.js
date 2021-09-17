@@ -15,6 +15,25 @@ export const Slider = () => (
   >
     <div>
       <img alt="" src={img} height={250} />
+   <h4>Name</h4>
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
+    </div>
+    <div>
+      <img alt="" src={img} height={250} />
     </div>
     <div>
       <img alt="" src={img1} height={250} />

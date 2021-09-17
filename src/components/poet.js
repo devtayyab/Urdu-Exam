@@ -10,7 +10,9 @@ import Typography from "@material-ui/core/Typography";
 import img from "../images/24.jpg";
 import img2 from '../images/21.jpeg'
 import img3 from '../images/meer.jpeg'
+import Reveal from 'react-reveal/Reveal';
 import Favorite from "@material-ui/icons/Favorite";
+import { Avatar } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     maxWidth: 205,
@@ -25,13 +27,14 @@ export default function Poet() {
   return (
     <div
       style={{
-        backgroundColor: "#333",
+        // backgroundColor: "#333",
         overflowX: "auto",
         overflowY: "hidden",
         whiteSpace: "nowrap",
         scrollBehavior: "smooth",
       }}
     >
+      <h5>سوانحی خاکے</h5>
       <div
         style={{
           display: "inline-block",
@@ -41,33 +44,22 @@ export default function Poet() {
           textDecoration: "none",
         }}
       >
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={img}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                احمد فراز
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                احمد فراز ۱۲ جنوری ۱۹۳۱ کو کوہاٹ
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              <Favorite></Favorite>
-            </Button>
-            <Button size="small" color="primary">
-              مزید دریافت
-            </Button>
-          </CardActions>
-        </Card>
+        
+       <Avatar src={img} style={{
+         width: '150px',
+         height: '150px'
+       }}></Avatar>
+       <br/>
+      <p style={{
+        color: "black"
+      }}>میر تقی میر
+      <br/>
+      1722-1810
+      </p>
+              
+             
       </div>
-
+{/* 
       <div
         style={{
           display: "inline-block",
@@ -85,9 +77,11 @@ export default function Poet() {
               title="Contemplative Reptile"
             />
             <CardContent>
+            <Reveal effect="fadeInUp">
               <Typography gutterBottom variant="h5" component="h2">
               میر تقی میر
               </Typography>
+              </Reveal>
               <Typography variant="body2" color="textSecondary" component="p">
                 احمد فراز ۱۲ جنوری ۱۹۳۱ کو کوہاٹ
               </Typography>
@@ -209,8 +203,8 @@ export default function Poet() {
               مزید دریافت
             </Button>
           </CardActions>
-        </Card>
+        </Card> */}
       </div>
-    </div>
+    
   );
 }

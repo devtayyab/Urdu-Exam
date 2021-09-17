@@ -18,6 +18,13 @@ export const Poetslider = () => (
     
 <Roll left>
     <div>
+     <p
+     style={{
+      fontFamily: "Noto Naskh Arabic",
+      fontSize: "1.6em",
+      direction: "rtl",
+     }}
+     >آج کے اشعار</p>
       <p
         style={{
           display: "flex",
@@ -25,7 +32,7 @@ export const Poetslider = () => (
           textAlign: "center",
           justifyContent: "center",
           marginTop: "5px",
-          paddingTop: "10%",
+          paddingTop: "5%",
           color: "#333",
           fontFamily: "Noto Naskh Arabic",
           fontSize: "1.2em",
@@ -55,6 +62,7 @@ export const Poetslider = () => (
       </p>
     </div>
     </Roll>
+    <Roll left>
     <div>
       <p
         style={{
@@ -63,7 +71,7 @@ export const Poetslider = () => (
           textAlign: "center",
           justifyContent: "center",
           marginTop: "10px",
-          paddingTop: "10%",
+          paddingTop: "5%",
           color: "#333",
           fontFamily: "Noto Naskh Arabic",
           fontSize: "1.2em",
@@ -92,6 +100,8 @@ export const Poetslider = () => (
         </Button>
       </p>
     </div>
+    </Roll>
+    <Roll left>
     <div>
       <p
         style={{
@@ -100,7 +110,7 @@ export const Poetslider = () => (
           textAlign: "center",
           justifyContent: "center",
           marginTop: "10px",
-          paddingTop: "10%",
+          paddingTop: "5%",
           color: "#333",
           fontFamily: "Noto Naskh Arabic",
           fontSize: "1.2em",
@@ -129,6 +139,7 @@ export const Poetslider = () => (
         </Button>
       </p>
     </div>
+    </Roll>
     <div>
       <p
         style={{
@@ -137,7 +148,7 @@ export const Poetslider = () => (
           textAlign: "center",
           justifyContent: "center",
           marginTop: "10px",
-          paddingTop: "10%",
+          paddingTop: "5%",
           color: "#333",
           fontFamily: "Noto Naskh Arabic",
           fontSize: "1.2em",
@@ -148,7 +159,11 @@ export const Poetslider = () => (
         <br />
         دشت میں قیس ملا کوہ میں فرہاد مجھے{" "}
       </p>
-      <p>مضطر خیرآبادی</p>
+      <p
+      style={{
+        marginTop: '5px'
+      }}
+      >مضطر خیرآبادی</p>
       <p>
         <Button>
           <Favorite

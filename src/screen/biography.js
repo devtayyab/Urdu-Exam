@@ -4,6 +4,7 @@ import { FavoriteBorder } from "@material-ui/icons";
 import imag from "../images/logo.png";
 import Favorite from "@material-ui/icons/Favorite";
 import BasicTabs from "../components/tabs";
+import SimpleBottomNavigation from "../components/tabbar";
 export const Biography = () => {
   return (
     <div>
@@ -65,6 +66,7 @@ export const Biography = () => {
         </p>
       </div>
       <BasicTabs></BasicTabs>
+      <SimpleBottomNavigation></SimpleBottomNavigation>
     </div>
   );
 };

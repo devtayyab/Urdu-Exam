@@ -15,7 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Avatar } from '@material-ui/core';
-
+import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -139,7 +139,9 @@ export default function Navbar() {
             fontFamily: "Noto Naskh Arabic",
             fontSize: "1.2em",
             direction: "rtl",
-          }}>شاعر</p>
+          }}>
+             <Link to="/poetlist">شاعر</Link>
+            </p>
       </MenuItem>
       <MenuItem>
       <p style={{

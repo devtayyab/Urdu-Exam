@@ -13,6 +13,7 @@ import img3 from '../images/meer.jpeg'
 import Reveal from 'react-reveal/Reveal';
 import Favorite from "@material-ui/icons/Favorite";
 import { Avatar } from "@material-ui/core";
+import {Link} from 'react-router-dom'
 const useStyles = makeStyles({
   root: {
     maxWidth: 205,
@@ -44,7 +45,7 @@ export default function Poet() {
           textDecoration: "none",
         }}
       >
-        
+        <Link to="/biography">
        <Avatar src={img} style={{
          width: '150px',
          height: '150px'
@@ -56,7 +57,80 @@ export default function Poet() {
       <br/>
       1722-1810
       </p>
-              
+        </Link>      
+             
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          color: "white",
+          textAlign: "center",
+          padding: "4px",
+          textDecoration: "none",
+        }}
+      >
+        <Link to="/biography">
+       <Avatar src={img} style={{
+         width: '150px',
+         height: '150px'
+       }}></Avatar>
+       <br/>
+      <p style={{
+        color: "black"
+      }}>میر تقی میر
+      <br/>
+      1722-1810
+      </p>
+        </Link>      
+             
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          color: "white",
+          textAlign: "center",
+          padding: "4px",
+          textDecoration: "none",
+        }}
+      >
+        <Link to="/biography">
+       <Avatar src={img} style={{
+         width: '150px',
+         height: '150px'
+       }}></Avatar>
+        </Link>
+       <br/>
+      <p style={{
+        color: "black"
+      }}>میر تقی میر
+      <br/>
+      1722-1810
+      </p>
+             
+             
+      </div>
+      <div
+        style={{
+          display: "inline-block",
+          color: "white",
+          textAlign: "center",
+          padding: "4px",
+          textDecoration: "none",
+        }}
+      >
+        <Link to="/biography">
+       <Avatar src={img} style={{
+         width: '150px',
+         height: '150px'
+       }}></Avatar>
+       <br/>
+      <p style={{
+        color: "black"
+      }}>میر تقی میر
+      <br/>
+      1722-1810
+      </p>
+        </Link>      
              
       </div>
 {/* 

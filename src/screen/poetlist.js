@@ -4,18 +4,23 @@ import {
   ListItem,
   Divider,
   ListItemText,
-  ListItemButton,
   Avatar,
   Typography,
   ListItemAvatar,
+Button
 } from "@material-ui/core";
+
+// import ListItemButton from '@mui/material/ListItemButton';
 import Navbar from "../components/navbar";
+import SimpleBottomNavigation from "../components/tabbar";
 
 export default function PoetList() {
   return (
+    <div>
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       <Navbar />
       <ListItem alignItems="flex-start">
+        <Button>
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
@@ -35,6 +40,7 @@ export default function PoetList() {
             </React.Fragment>
           }
         />
+        </Button>
       </ListItem>
       <Divider variant="inset" component="li" />
       <ListItem alignItems="flex-start">
@@ -80,6 +86,9 @@ export default function PoetList() {
           }
         />
       </ListItem>
+
     </List>
+    <SimpleBottomNavigation></SimpleBottomNavigation>
+    </div>
   );
 }

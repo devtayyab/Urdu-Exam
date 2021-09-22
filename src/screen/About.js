@@ -2,9 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import img from "../images/rait.jpg";
+
 import { Button } from "@material-ui/core";
-import img1 from "../images/first.jpg";
+
 import Slide from "react-reveal/Slide";
 import Bounce from "react-reveal/Bounce";
 import SimpleBottomNavigation from "../components/tabbar";
@@ -30,9 +30,11 @@ export default function About() {
           <Slide left>
             <Paper
               className={classes.paper}
-              style={{
-                // backgroundImage: linear-gradient(red, yellow)
-              }}
+              style={
+                {
+                  // backgroundImage: linear-gradient(red, yellow)
+                }
+              }
             >
               <Bounce bottom>
                 <p
@@ -52,7 +54,7 @@ export default function About() {
           </Slide>
         </Grid>
       </Grid>
-      <SimpleBottomNavigation></SimpleBottomNavigation> 
-         </div>
+      <SimpleBottomNavigation></SimpleBottomNavigation>
+    </div>
   );
 }

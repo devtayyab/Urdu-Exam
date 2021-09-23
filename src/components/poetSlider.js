@@ -5,6 +5,16 @@ import { Carousel } from "react-responsive-carousel";
 import { Button } from "@material-ui/core";
 import Roll from 'react-reveal/Roll';
 export const Poetslider = () => (
+ <div>
+    <p
+  style={{
+   fontFamily: "Noto Naskh Arabic",
+   fontSize: "1.6em",
+   direction: "rtl",
+   textAlign: 'center'
+  }}
+  >آج کے اشعار</p>
+ 
   <Carousel
     autoPlay
     dynamicHeight
@@ -14,17 +24,12 @@ export const Poetslider = () => (
     useKeyboardArrows
     showIndicators={false}
     showArrows={false}
+    showStatus= {false}
   >
     
 <Roll left>
     <div>
-     <p
-     style={{
-      fontFamily: "Noto Naskh Arabic",
-      fontSize: "1.6em",
-      direction: "rtl",
-     }}
-     >آج کے اشعار</p>
+ 
       <p
         style={{
           display: "flex",
@@ -182,4 +187,5 @@ export const Poetslider = () => (
       </p>
     </div>
   </Carousel>
+  </div>
 );

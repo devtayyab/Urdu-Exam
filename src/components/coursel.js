@@ -12,6 +12,7 @@ export const Slider = () => (
     interval={2000}
     showThumbs={false}
     useKeyboardArrows
+    showStatus= {false}
   >
     <div>
       <img alt="" src={img} height={250} />

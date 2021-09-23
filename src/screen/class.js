@@ -5,9 +5,9 @@ import { data } from "../data/QuizData";
 import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { Quizget } from "../store/action/blog";
+import { Classget, Quizget } from "../store/action/blog";
 import uniqueRandom from 'unique-random';
-const Quizscreen = () => {
+const Classscreen = () => {
  
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -18,14 +18,15 @@ const Quizscreen = () => {
   const [showScoreModal, setShowScoreModal] = useState(false);
   const [question, setquestion]= useState(0)
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.quizdata);
+  const state = useSelector((state) => state.classdata.reverse());
   console.log(state);
   useEffect(() => {
-    dispatch(Quizget());
+    dispatch(Classget());
   }, [dispatch]);
   const allQuestions = state
+  console.log("aaa",allQuestions)
   const validateAnswer = (selectedOption) => {
-    let correct_option = allQuestions[question]["correct_option"];
+    let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
     setCurrentOptionSelected(selectedOption);
     setCorrectOption(correct_option);
     setIsOptionsDisabled(true);
@@ -42,7 +43,7 @@ const Quizscreen = () => {
       // Show Score Modal
       setShowScoreModal(true);
     } else {
-     const random=   uniqueRandom(1, state.length-2)
+     const random=   uniqueRandom(1, state.length-1)
       setCurrentQuestionIndex(currentQuestionIndex + 1);
      
       setquestion(random())
@@ -106,7 +107,7 @@ const Quizscreen = () => {
             fontSize: 30,
           }}
         >
-          {allQuestions[question]?.question}
+          {allQuestions[currentQuestionIndex]?.question}
         </p>
       </div>
     );
@@ -114,7 +115,7 @@ const Quizscreen = () => {
   const renderOptions = () => {
     return (
       <div>
-        {allQuestions[question]?.options.map((option) => (
+        {allQuestions[currentQuestionIndex]?.options.map((option) => (
           <div>
             <Button
               onClick={() => validateAnswer(option)}
@@ -243,7 +244,7 @@ const Quizscreen = () => {
     >
       {currentQuestionIndex < 10 ? (
         <>
-          <h1>Quiz</h1>
+          <h1>Live Class</h1>
           {/* ProgressBar */}
           {/* { renderProgressBar() } */}
           {/* Question */}
@@ -318,4 +319,4 @@ const Quizscreen = () => {
   );
 };
 
-export default Quizscreen;
+export default Classscreen;

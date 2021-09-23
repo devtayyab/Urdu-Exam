@@ -7,6 +7,7 @@ import { Button } from "@material-ui/core";
 import img1 from '../images/first.jpg'
 import Slide from 'react-reveal/Slide';
 import Bounce from 'react-reveal/Bounce';
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -47,9 +48,16 @@ export default function Griditem() {
               knowledge about Urdu!
             </p>
             </Bounce>
-            <Button variant="contained" color='#333'>
-              QUIZ
+            <Link to="/quiz">
+            <Button  color='inherit'>
+               <p style={{
+                 color : 'white',
+                fontStyle: 'italic',
+                fontSize: 20,
+                fontFamily: 'serif'
+               }}>Start Quiz</p>
             </Button>
+            </Link>
           </Paper>
           </Slide>
         </Grid>
@@ -76,9 +84,16 @@ export default function Griditem() {
               knowledge about Urdu!
             </p>
             </Bounce>
-            <Button variant="contained" color='#333'>
-              Online Class
+            <Link to="/class">
+            <Button  color='inherit'>
+               <p style={{
+                 color : 'white',
+                 fontStyle: 'italic',
+                 fontSize: 20,
+                 fontFamily: 'serif'
+               }}>Online Class</p>
             </Button>
+            </Link>
           </Paper>
           </Slide>
         </Grid>

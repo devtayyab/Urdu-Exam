@@ -1,7 +1,8 @@
+import { Button, Card, Paper } from "@material-ui/core";
 import React, { useState } from "react";
-
-import { COLORS, SIZES } from "../constants";
+import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import { data } from "../data/QuizData";
+import { CheckOutlined } from "@material-ui/icons";
 // import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Quizscreen = () => {
@@ -38,322 +39,271 @@ const Quizscreen = () => {
       setIsOptionsDisabled(false);
       setShowNextButton(false);
     }
-    //     Animated.timing(progress, {
-    //         toValue: currentQuestionIndex+1,
-    //         duration: 1000,
-    //         useNativeDriver: false
-    //     }).start();
-    // }
-    const restartQuiz = () => {
-      setShowScoreModal(false);
+  };
+  //     Animated.timing(progress, {
+  //         toValue: currentQuestionIndex+1,
+  //         duration: 1000,
+  //         useNativeDriver: false
+  //     }).start();
+  // }
+  const restartQuiz = () => {
+    setShowScoreModal(false);
 
-      setCurrentQuestionIndex(0);
-      setScore(0);
+    setCurrentQuestionIndex(0);
+    setScore(0);
 
-      setCurrentOptionSelected(null);
-      setCorrectOption(null);
-      setIsOptionsDisabled(false);
-      setShowNextButton(false);
-      // Animated.timing(progress, {
-      //     toValue: 0,
-      //     duration: 1000,
-      //     useNativeDriver: false
-      // }).start();
-    };
+    setCurrentOptionSelected(null);
+    setCorrectOption(null);
+    setIsOptionsDisabled(false);
+    setShowNextButton(false);
+    // Animated.timing(progress, {
+    //     toValue: 0,
+    //     duration: 1000,
+    //     useNativeDriver: false
+    // }).start();
+  };
 
-    const renderQuestion = () => {
-      return (
+  const renderQuestion = () => {
+    return (
+      <div
+        style={{
+          marginVertical: 40,
+        }}
+      >
+        {/* Question Counter */}
         <div
           style={{
-            marginVertical: 40,
+            flexDirection: "row",
+            alignItems: "flex-end",
           }}
         >
-          {/* Question Counter */}
-          <div
-            style={{
-              flexDirection: "row",
-              alignItems: "flex-end",
-            }}
-          >
-            <p
-              style={{
-                color: COLORS.white,
-                fontSize: 20,
-                opacity: 0.6,
-                marginRight: 2,
-              }}
-            >
-              {currentQuestionIndex + 1}
-            </p>
-            <p style={{ color: COLORS.white, fontSize: 18, opacity: 0.6 }}>
-              / {allQuestions.length}
-            </p>
-          </div>
-
-          {/* Question */}
           <p
             style={{
-              color: COLORS.white,
-              fontSize: 30,
+              fontSize: 20,
+              opacity: 0.6,
+              marginRight: 2,
             }}
           >
-            {allQuestions[currentQuestionIndex]?.question}
+            {currentQuestionIndex + 1}/ {allQuestions.length}
           </p>
         </div>
-      );
-    };
-    const renderOptions = () => {
-      return (
-        <div>
-          {allQuestions[currentQuestionIndex]?.options.map((option) => (
-            <button
+
+        {/* Question */}
+        <p
+          style={{
+            fontSize: 30,
+          }}
+        >
+          {allQuestions[currentQuestionIndex]?.question}
+        </p>
+      </div>
+    );
+  };
+  const renderOptions = () => {
+    return (
+      <div>
+        {allQuestions[currentQuestionIndex]?.options.map((option) => (
+          <div>
+            <Button
               onClick={() => validateAnswer(option)}
               disabled={isOptionsDisabled}
               key={option}
               style={{
-                borderWidth: 3,
+                borderWidth: 2,
                 borderColor:
                   option == correctOption
-                    ? COLORS.success
+                    ? "green"
                     : option == currentOptionSelected
-                    ? COLORS.error
-                    : COLORS.secondary + "40",
+                    ? "red"
+                    : "",
                 backgroundColor:
                   option == correctOption
-                    ? COLORS.success + "20"
+                    ? "green"
                     : option == currentOptionSelected
-                    ? COLORS.error + "20"
-                    : COLORS.secondary + "20",
-                height: 60,
+                    ? "red"
+                    : "",
+
                 borderRadius: 20,
-                flexDirection: "row",
+                width: "80%",
                 alignItems: "center",
-                justifyContent: "space-between",
-                paddingHorizontal: 20,
-                marginVertical: 10,
+                height: 60,
+                marginBottom: "10px",
               }}
             >
-              <p style={{ fontSize: 20, color: COLORS.white }}>{option}</p>
+              <p style={{ fontSize: 20 }}>{option}</p>
 
               {/* Show Check Or Cross Icon based on correct answer*/}
-              {option == correctOption ? (
+              {option === correctOption ? (
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
                     borderRadius: 30 / 2,
-                    backgroundColor: COLORS.success,
+                    backgroundColor: "green",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  {/* <MaterialCommunityIcons
-                    name="check"
+                  <CheckOutlined
                     style={{
-                      color: COLORS.white,
-                      fontSize: 20,
+                      color: "white",
+                      marginLeft: 40,
                     }}
-                  /> */}
+                  ></CheckOutlined>
                 </div>
               ) : option == currentOptionSelected ? (
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
                     borderRadius: 30 / 2,
-                    backgroundColor: COLORS.error,
+                    backgroundColor: "red",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
-                  {/* <MaterialCommunityIcons
-                    name="close"
+                  <CancelOutlinedIcon
                     style={{
-                      color: COLORS.white,
-                      fontSize: 20,
+                      color: "white",
+                      marginLeft: 40,
                     }}
-                  /> */}
+                  >
+                    {" "}
+                  </CancelOutlinedIcon>
                 </div>
               ) : null}
-            </button>
-          ))}
-        </div>
-      );
-    };
-    const renderNextButton = () => {
-      if (showNextButton) {
-        return (
-          <button
-            onClick={handleNext}
-            style={{
-              marginTop: 20,
-              width: "100%",
-              backgroundColor: COLORS.accent,
-              padding: 20,
-              borderRadius: 5,
-            }}
-          >
-            <p
-              style={{ fontSize: 20, color: COLORS.white, textAlign: "center" }}
-            >
-              Next
-            </p>
-          </button>
-        );
-      } else {
-        return null;
-      }
-    };
-
-    // const [progress, setProgress] = useState(new Animated.Value(0));
-    // const progressAnim = progress.interpolate({
-    //     inputRange: [0, allQuestions.length],
-    //     outputRange: ['0%','100%']
-    // })
-    // const renderProgressBar = () => {
-    //     return (
-    //         <div style={{
-    //             width: '100%',
-    //             height: 20,
-    //             borderRadius: 20,
-    //             backgroundColor: '#00000020',
-
-    //         }}>
-    //             <Animated.div style={[{
-    //                 height: 20,
-    //                 borderRadius: 20,
-    //                 backgroundColor: COLORS.accent
-    //             },{
-    //                 width: progressAnim
-    //             }]}>
-
-    //             </Animated.div>
-
-    //         </div>
-    //     )
-    // }
-
-    return (
-      //    <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
-      <div
-        style={{
-          flex: 1,
-          paddingVertical: 10,
-          paddingHorizontal: 16,
-          backgroundColor: "#00a46c",
-          position: "relative",
-        }}
-      >
-          <h1>Quiz</h1>
-        {/* ProgressBar */}
-        {/* { renderProgressBar() } */}
-
-        {/* Question */}
-        {renderQuestion()}
-
-        {/* Options */}
-        {renderOptions()}
-
-        {/* Next Button */}
-        {renderNextButton()}
-
-        {/* Score Modal */}
-        {/* <Modal
-               animationType="slide"
-               transparent={true}
-               visible={showScoreModal}
-               > */}
-        <div
-          style={{
-            flex: 1,
-            backgroundColor: COLORS.primary,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: COLORS.white,
-              width: "90%",
-              borderRadius: 20,
-              padding: 20,
-              alignItems: "center",
-            }}
-          >
-            <p style={{ fontSize: 30, fontWeight: "bold" }}>
-              {score > allQuestions.length / 2 ? "Congratulations!" : "Oops!"}
-            </p>
-
-            <div
-              style={{
-                flexDirection: "row",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                marginVertical: 20,
-              }}
-            >
-              <p
-                style={{
-                  fontSize: 30,
-                  color:
-                    score > allQuestions.length / 2
-                      ? COLORS.success
-                      : COLORS.error,
-                }}
-              >
-                {score}
-              </p>
-              <p
-                style={{
-                  fontSize: 20,
-                  color: COLORS.black,
-                }}
-              >
-                / {allQuestions.length}
-              </p>
-            </div>
-            {/* Retry Quiz button */}
-            <button
-              onClick={restartQuiz}
-              style={{
-                backgroundColor: COLORS.accent,
-                padding: 20,
-                width: "100%",
-                borderRadius: 20,
-              }}
-            >
-              <p
-                style={{
-                  textAlign: "center",
-                  color: COLORS.white,
-                  fontSize: 20,
-                }}
-              >
-                Retry Quiz
-              </p>
-            </button>
+            </Button>
+            <br />
           </div>
-        </div>
-        {/* </Modal> */}
-
-        {/* Background img */}
-        {/* <img
-                source={require)}
-                style={{
-                    width: SIZES.width,
-                    height: 130,
-                    zIndex: -1,
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    opacity: 0.5
-                }}
-                resizeMode={'contain'}
-                /> */}
+        ))}
       </div>
     );
   };
+  const renderNextButton = () => {
+    if (showNextButton) {
+      return (
+        <Button
+          onClick={handleNext}
+          style={{
+            width: "80%",
+            borderRadius: 20,
+          }}
+        >
+          <p style={{ fontSize: 20, textAlign: "center" }}>Next</p>
+        </Button>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  // const [progress, setProgress] = useState(new Animated.Value(0));
+  // const progressAnim = progress.interpolate({
+  //     inputRange: [0, allQuestions.length],
+  //     outputRange: ['0%','100%']
+  // })
+  // const renderProgressBar = () => {
+  //     return (
+  //         <div style={{
+  //             width: '100%',
+  //             height: 20,
+  //             borderRadius: 20,
+  //             backgroundColor: '#00000020',
+
+  //         }}>
+  //             <Animated.div style={[{
+  //                 height: 20,
+  //                 borderRadius: 20,
+  //                 backgroundColor: COLORS.accent
+  //             },{
+  //                 width: progressAnim
+  //             }]}>
+
+  //             </Animated.div>
+
+  //         </div>
+  //     )
+  // }
+
+  return (
+    <div
+      style={{
+        flex: 1,
+        textAlign: "center",
+        justifyContent: "center",
+      }}
+    >
+      {currentQuestionIndex < 4 ? (
+        <>
+          <h1>Quiz</h1>
+          {/* ProgressBar */}
+          {/* { renderProgressBar() } */}
+          {/* Question */}
+          {renderQuestion()}
+          {/* Options */}
+          {renderOptions()}
+          {/* Next Button */}
+          {renderNextButton()}
+        </>
+      ) : (
+        <>
+          <div
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "white",
+                width: "80%",
+                borderRadius: 20,
+                padding: 20,
+                alignItems: "center",
+              }}
+            >
+              <p style={{ fontSize: 30, fontWeight: "bold" }}>
+                {score > allQuestions.length / 2 ? "Congratulations!" : "Oops!"}
+              </p>
+
+              <div
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginVertical: 20,
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 30,
+                    color: score > allQuestions.length / 2 ? "green" : "red",
+                  }}
+                >
+                  {score} / {allQuestions.length}
+                </p>
+              </div>
+              {/* Retry Quiz button */}
+              <Button
+                onClick={restartQuiz}
+                style={{
+                  width: "80%",
+                  borderRadius: 20,
+                }}
+              >
+                <p
+                  style={{
+                    textAlign: "center",
+
+                    fontSize: 20,
+                  }}
+                >
+                  Retry Quiz
+                </p>
+              </Button>
+            </div>
+          </div>{" "}
+        </>
+      )}
+    </div>
+  );
 };
 
 export default Quizscreen;

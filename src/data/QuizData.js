@@ -1,3 +1,12 @@
+import React from "react"
+
+
+export default function QuizData() {
+    return (
+        const {data} = axios
+    )
+}
+
 export const data = [
     {
         question: "What’s the biggest planet in our solar system?",

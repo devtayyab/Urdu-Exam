@@ -11,12 +11,14 @@ export const getquiz = async (req, res) => {
 };
 
 export const addquiz = async (req, res) => {
-  const quiz = req.body;
-
+const quiz = req.body;
+console.log(quiz)
+const {question} = req.body;
+console.log(question)
   try {
     const data = await Quiz.create(quiz);
     data.save();
-    console.log(data);
+
     res.send(data)
   } catch (error) {
     console.log(error.message);

@@ -7,6 +7,7 @@ import PoetList from "./screen/poetlist";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ContactUs from "./screen/contact";
 import About from "./screen/About";
+import Quizscreen from "./screen/quiz";
 function App() {
   return (
     <div
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/quiz">
+            <Quizscreen></Quizscreen>
           </Route>
         </Switch>
       </Router>

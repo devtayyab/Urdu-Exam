@@ -5,7 +5,7 @@ const ClassSchema = new mongoose.Schema({
  options: Array,
  correct_option: String,
  time : Date,
-  date: { type: Date, default: new Date() },
+date: { type: Date, default: new Date() },
 });
 
 const Class = mongoose.model("Class", ClassSchema);

@@ -1,5 +1,8 @@
 import express, { json } from "express";
 import Blog from "../model/blog.js";
+import fs from "fs";
+import path from "path";
+const __dirname = path.resolve();
 export const getblog = async (req, res) => {
   try {
     const blog = await Blog.find({});
@@ -10,16 +13,30 @@ export const getblog = async (req, res) => {
 };
 
 export const addblog = async (req, res) => {
-  const blog = req.body;
+  const { title, subtitle, dob, detail, imagefile } = req.body;
+  console.log(req.file);
+  const _product = new Blog({
+    title,
+    subtitle,
+    dob,
+    detail,
+    imagefile: req.file.path,
+    img: {
+      data: fs.readFileSync(
+        path.join(__dirname + "/uploads/" + req.file.filename)
+      ),
+      contentType: "image/png",
+    },
+  });
 
-  try {
-    const data = await Blog.create(blog);
-    data.save();
-    console.log(data);
-    res.send(data)
-  } catch (error) {
-    console.log(error.message);
-  }
+  _product.save((error, data) => {
+    if (error) throw error;
+    if (data) {
+      return res.json({data, 
+        imge: data.img.data.toString('base64'),
+      });
+    }
+  });
 };
 export const Searchblog = async (req, res) => {
   const search = req.body;

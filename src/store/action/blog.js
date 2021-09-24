@@ -20,21 +20,17 @@ export const Classget = () => {
       });
     };
   };
-
-export const searchaction = (search) => {
-  return async (dispatch) => {
-    try {
-      const { data } = await axios.post(`${uri}/product/search`, { search });
-
+  export const Lafzsget = () => {
+    return async (dispatch) => {
+      const { data } = await axios.get(`${uri}/lafz`);
+      console.log("action", data);
       dispatch({
-        type: "SEARCH",
+        type: "LAFZ",
         payload: data,
       });
-    } catch (error) {
-      console.log(error.message);
-    }
+    };
   };
-};
+
 export const Detailaction = (id) => {
   console.log("action" + id);
   return async (dispatch) => {

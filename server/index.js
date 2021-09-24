@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import Blogrouter from "./routes/blogroutes.js";
 import Quizrouter from "./routes/quizroutes.js";
 import Classrouter from "./routes/classroute.js";
-
+import Lafzrouter from './routes/lafzroutes.js'
 dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +20,7 @@ app.use(cors());
 // );
 app.use(express.json());
 app.use("/blog", Blogrouter);
+app.use("/lafz", Lafzrouter);
 app.use("/quiz", Quizrouter);
 app.use("/class", Classrouter);
 app.get("/", (req, res) => {

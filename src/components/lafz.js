@@ -1,28 +1,31 @@
-import * as React from 'react';
-import {Box} from '@material-ui/core';
-import {Paper} from '@material-ui/core';
+import React, { useEffect } from "react";
+import { Box } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+
+import { useSelector, useDispatch } from "react-redux";
 
 export default function SimplePaper() {
+  const state = useSelector((state) => state?.lafz.reverse());
+  console.log("lafz", state);
+
   return (
     <Box
-    
       sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        textAlign:'center',
-        '& > :not(style)': {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        textAlign: "center",
+        "& > :not(style)": {
           m: 1,
-          width: '80%',
+          width: "80%",
           height: 128,
         },
       }}
     >
-      
-      <Paper elevation={3} >
-        <h4>Aj ka lafz</h4>
-        <pre>r t g f </pre>
-        <h6>Meaning</h6>
+      <Paper elevation={3}>
+        <h4>{state[0]?.lafz}</h4>
+        <pre>{state[0]?.hijay}</pre>
+        <h6>{state[0]?.meaning}</h6>
       </Paper>
     </Box>
   );

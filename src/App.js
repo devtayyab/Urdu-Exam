@@ -1,5 +1,4 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useEffect } from "react";
 import "./App.css";
 import Home from "./screen/home";
 import { Biography } from "./screen/biography";
@@ -9,47 +8,51 @@ import ContactUs from "./screen/contact";
 import About from "./screen/About";
 import Quizscreen from "./screen/quiz";
 import { Provider } from "react-redux";
-import {store} from "./store/store";
+import { store } from "./store/store";
 import Start from "./screen/start";
 import Classscreen from "./screen/class";
+import { useDispatch } from "react-redux";
+import { Lafzsget } from "./store/action/blog";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Lafzsget());
+  });
   return (
-    <Provider store={store}>
-      <div
-        style={{
-          maxWidth: "100%",
-        }}
-      >
-        <Router>
-          <Switch>
+    <div
+      style={{
+        maxWidth: "100%",
+      }}
+    >
+      <Router>
+        <Switch>
           <Route exact path="/start">
-              <Start></Start>
-            </Route>
-            <Route exact path="/class">
-           <Classscreen></Classscreen>
-            </Route>
-            <Route exact path="/biography">
-              <Biography />
-            </Route>
-            <Route exact path="/poetlist">
-              <PoetList />
-            </Route>
-            <Route exact path="/contact">
-              <ContactUs />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/quiz">
-              <Quizscreen></Quizscreen>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    </Provider>
+            <Start></Start>
+          </Route>
+          <Route exact path="/class">
+            <Classscreen></Classscreen>
+          </Route>
+          <Route exact path="/biography">
+            <Biography />
+          </Route>
+          <Route exact path="/poetlist">
+            <PoetList />
+          </Route>
+          <Route exact path="/contact">
+            <ContactUs />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/quiz">
+            <Quizscreen></Quizscreen>
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

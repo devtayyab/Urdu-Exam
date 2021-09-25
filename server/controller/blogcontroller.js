@@ -20,21 +20,15 @@ export const addblog = async (req, res) => {
     subtitle,
     dob,
     detail,
-    imagefile: req.file.path,
-    img: {
-      data: fs.readFileSync(
-        path.join(__dirname + "/uploads/" + req.file.filename)
-      ),
-      contentType: "image/png",
-    },
+    imagefile: req.file.filename,
+
+    contentType: "image/png",
   });
 
   _product.save((error, data) => {
     if (error) throw error;
     if (data) {
-      return res.json({data, 
-        imge: data.img.data.toString('base64'),
-      });
+      return res.json(data);
     }
   });
 };

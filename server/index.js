@@ -2,22 +2,26 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 import Blogrouter from "./routes/blogroutes.js";
 import Quizrouter from "./routes/quizroutes.js";
 import Classrouter from "./routes/classroute.js";
-import Lafzrouter from './routes/lafzroutes.js'
+import Lafzrouter from "./routes/lafzroutes.js";
+import path from "path";
+const __dirname = path.resolve();
 dotenv.config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 5000;
 app.use(cors());
-// app.use(
-//   bodyParser.urlencoded({
-//     limit: "50mb",
-//     extended: true,
-//     parameterLimit: 50000,
-//   })
-// );
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+app.use(express.static(__dirname + "/uploads"));
 app.use(express.json());
 app.use("/blog", Blogrouter);
 app.use("/lafz", Lafzrouter);

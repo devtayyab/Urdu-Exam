@@ -26,30 +26,46 @@ export default function About() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <Slide left>
             <Paper
               className={classes.paper}
               style={
                 {
-                  // backgroundImage: linear-gradient(red, yellow)
+                  display: 'flex',
+                 justifyContent:'center',
+                 alignItems:'center'
+                 
                 }
               }
             >
               <Bounce bottom>
                 <p
-                  style={{
-                    color: "white",
-                  }}
+                style={{
+                  fontFamily: "Noto Naskh Arabic",
+                    fontSize: "1.2em",
+                    direction: "rtl",
+                }}
                 >
-                  A collection of interesting questions related to Urdu poetry,
-                  prose and literary history. Play Urdu Quiz and check your
-                  knowledge about Urdu!
+                  یہ خالص اردو کی تیاری کے حوالے سے بنائی گئی ایک کوشش ہے۔ہمارے
+                  ہاں تیاری کے اور بھی بہت سارے وسائل رائج ہیں جن سے طلبا فائدہ
+                  بھی اٹھا رہے ہیں مگر ایک تو ان میں اغلاط کی درستی کا خیال نہیں
+                  رکھا جاتا اور نہ تحقیق سے کام لیا جاتا جس سے بڑا نقصان طالب
+                  علم کو یہ ہوتا ہے کہ وہ اس مطابق پیپر تو صحیح کر آتا ہے پر
+                  نتائج بلکل الٹ ہوتے ہیں اور فیل ہونا ثابت ہوتا ہے۔جو لوگ یہ
+                  کام کر رہے ہیں وہ صرف سرمائے کے حصول کا ذریعہ ہیں۔اور اس طرح
+                  پیسے کمانے کے چکر میں کن کن کا نقصان ہو رہا ہے وہ سب آپ کے
+                  سامنے ہے اور یہ کام ٹھہر نہیں رہا بل کہ اور زیادہ ہو رہا ہے۔
+                  یہ ذریعہ اس نقطہ نظر سے تیار نہیں کیا گیا نہ اس کے پیچھے ایسی
+                  سوچ ہے میں خود ادب کا طالب علم ہوں اور اس ضروت کو پیش نظر رکھ
+                  کر طالب علموں کی کامیابی میں ایک طرح سے حصہ ہوگا۔اس میں جو بھی
+                  متن یا سوال آپ کو ملے گا وہ پوری تحقیق اور اغلاط سے پاک ہو
+                  گا۔مقصود صرف یہ ہے کہ سب کم وقت میں کامیابی حاصل کریں۔ آپ اس
+                  میں کوئی غلطی سمجھتے ہیں تو کھلا محسوس کر کے ہم کو لکھیں۔ہم اس
+                  کو درست کر لیں گئے۔ ذیشان ادیب
                 </p>
               </Bounce>
-              <Button variant="contained" color="#333">
-                Online Class
-              </Button>
+             
             </Paper>
           </Slide>
         </Grid>

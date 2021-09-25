@@ -12,12 +12,13 @@ import { store } from "./store/store";
 import Start from "./screen/start";
 import Classscreen from "./screen/class";
 import { useDispatch } from "react-redux";
-import { Lafzsget } from "./store/action/blog";
+import { Blogget, Lafzsget } from "./store/action/blog";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Lafzsget());
   });
+ 
   return (
     <div
       style={{
@@ -32,7 +33,7 @@ function App() {
           <Route exact path="/class">
             <Classscreen></Classscreen>
           </Route>
-          <Route exact path="/biography">
+          <Route exact path="/biography/:id">
             <Biography />
           </Route>
           <Route exact path="/poetlist">

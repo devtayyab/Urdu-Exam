@@ -1,13 +1,25 @@
 import { Avatar, Checkbox } from "@material-ui/core";
 import * as React from "react";
+import { Route, useParams } from "react-router-dom";
 import { FavoriteBorder } from "@material-ui/icons";
 import imag from "../images/logo.png";
 import Favorite from "@material-ui/icons/Favorite";
 import BasicTabs from "../components/tabs";
 import SimpleBottomNavigation from "../components/tabbar";
-export const Biography = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { Detailblog } from "../store/action/blog";
+export const Biography = (props) => {
+  console.log("props", props.match);
+  const state = useSelector((state) => state.blog[0]);
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  console.log("detail", state);
+
+  React.useEffect(() => {
+    dispatch(Detailblog(id));
+  }, [dispatch]);
   return (
-    <div>
+    <>
       <div
         style={{
           display: "flex",
@@ -21,7 +33,7 @@ export const Biography = () => {
           }}
         >
           <Avatar
-            src={imag}
+            src={`https://urduadmin.herokuapp.com/${state?.imagefile}`}
             alt="name"
             style={{
               width: "150px",
@@ -38,9 +50,11 @@ export const Biography = () => {
               alignItems: "center",
             }}
           >
-            <h3>HASRAT MOHANI</h3>
-            <Checkbox  icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+            <h3>{state?.title}</h3>
+           
+            <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
           </div>
+          <h6>{state?.subtitle}</h6>
           <p
             style={{
               fontFamily: "serif",
@@ -60,13 +74,11 @@ export const Biography = () => {
             color: "grey",
           }}
         >
-          The humorous poetry of prominent Urdu satirist Dilawar Figar
-          (1929-1998) first became known when at a Mushaira in Badayun where
-          Dilip Kumar was also present, Shakil Badayuni, who was compering,
+         {state?.detail}
         </p>
       </div>
       <BasicTabs></BasicTabs>
       <SimpleBottomNavigation></SimpleBottomNavigation>
-    </div>
+    </>
   );
 };

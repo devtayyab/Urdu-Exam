@@ -1,11 +1,21 @@
 import axios from "axios";
-const uri = "http://localhost:5000";
+const uri = "https://urduadmin.herokuapp.com";
 export const Quizget = () => {
   return async (dispatch) => {
     const { data } = await axios.get(`${uri}/quiz`);
     console.log("action", data);
     dispatch({
       type: "GET",
+      payload: data,
+    });
+  };
+};
+export const Blogget = () => {
+  return async (dispatch) => {
+    const { data } = await axios.get(`${uri}/blog`);
+    console.log("action", data);
+    dispatch({
+      type: "BLOG",
       payload: data,
     });
   };
@@ -31,11 +41,11 @@ export const Classget = () => {
     };
   };
 
-export const Detailaction = (id) => {
+export const Detailblog = (id) => {
   console.log("action" + id);
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`${uri}/product/${id}`, { id });
+      const { data } = await axios.post(`${uri}/blog/${id}`, { id });
       dispatch({
         type: "DETAIL",
         payload: data,

@@ -3,9 +3,11 @@ import Quiz from './quiz'
 import Class from './classreducer'
 import Lafz from './lafzreducer'
 import Blog from './blogreducer'
+import Slide from './slidereducer'
 export const reducer = combineReducers({
      quizdata: Quiz,
     classdata: Class,
     lafz: Lafz,
-    blog: Blog
+    blog: Blog,
+    slide : Slide
 })

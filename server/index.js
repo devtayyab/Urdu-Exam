@@ -7,6 +7,7 @@ import Blogrouter from "./routes/blogroutes.js";
 import Quizrouter from "./routes/quizroutes.js";
 import Classrouter from "./routes/classroute.js";
 import Lafzrouter from "./routes/lafzroutes.js";
+import Sliderouter from './routes/slideroute.js'
 import path from "path";
 const __dirname = path.resolve();
 dotenv.config();
@@ -27,6 +28,7 @@ app.use("/blog", Blogrouter);
 app.use("/lafz", Lafzrouter);
 app.use("/quiz", Quizrouter);
 app.use("/class", Classrouter);
+app.use("/slide", Sliderouter);
 app.get("/", (req, res) => {
   res.send("wellcome to server");
 });

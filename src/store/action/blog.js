@@ -21,26 +21,35 @@ export const Blogget = () => {
   };
 };
 export const Classget = () => {
-    return async (dispatch) => {
-      const { data } = await axios.get(`${uri}/class`);
-      console.log("action", data);
-      dispatch({
-        type: "CLASS",
-        payload: data,
-      });
-    };
+  return async (dispatch) => {
+    const { data } = await axios.get(`${uri}/class`);
+    console.log("action", data);
+    dispatch({
+      type: "CLASS",
+      payload: data,
+    });
   };
-  export const Lafzsget = () => {
-    return async (dispatch) => {
-      const { data } = await axios.get(`${uri}/lafz`);
-      console.log("action", data);
-      dispatch({
-        type: "LAFZ",
-        payload: data,
-      });
-    };
+};
+export const Lafzsget = () => {
+  return async (dispatch) => {
+    const { data } = await axios.get(`${uri}/lafz`);
+    console.log("action", data);
+    dispatch({
+      type: "LAFZ",
+      payload: data,
+    });
   };
-
+};
+export const Slideget = () => {
+  return async (dispatch) => {
+    const { data } = await axios.get(`${uri}/slide`);
+    console.log("slideaction", data);
+    dispatch({
+      type: "SLIDE",
+      payload: data,
+    });
+  };
+};
 export const Detailblog = (id) => {
   console.log("action" + id);
   return async (dispatch) => {

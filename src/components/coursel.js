@@ -24,7 +24,7 @@ export const Slider = () => {
       showStatus={false}
     >
       {state.map((e, i) => (
-        <div>
+        <div key={i}>
           <img alt="" src={`https://urduadmin.herokuapp.com/slider/${e.imagefile}`} height={250} />
           
         </div>

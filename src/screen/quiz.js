@@ -124,15 +124,15 @@ const Quizscreen = () => {
                 borderWidth: 2,
                 borderColor:
                   option == correctOption
-                    ? "green"
+                    ? "lightgreen"
                     : option == currentOptionSelected
-                    ? "red"
+                    ? "#AA1115"
                     : "",
                 backgroundColor:
                   option == correctOption
-                    ? "green"
+                    ? "lightgreen"
                     : option == currentOptionSelected
-                    ? "red"
+                    ? "#AA1115"
                     : "",
 
                 borderRadius: 20,
@@ -149,7 +149,7 @@ const Quizscreen = () => {
                 <div
                   style={{
                     borderRadius: 30 / 2,
-                    backgroundColor: "green",
+                    backgroundColor: "lihtgreen",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -165,7 +165,7 @@ const Quizscreen = () => {
                 <div
                   style={{
                     borderRadius: 30 / 2,
-                    backgroundColor: "red",
+                    backgroundColor: "#AA1115",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -272,7 +272,7 @@ const Quizscreen = () => {
               }}
             >
               <p style={{ fontSize: 30, fontWeight: "bold" }}>
-                {score > allQuestions.length / 2 ? "Congratulations!" : "Oops!"}
+                {score > 10 / 2 ? "Congratulations!" : "Oops!"}
               </p>
 
               <div
@@ -289,7 +289,7 @@ const Quizscreen = () => {
                     color: score > allQuestions.length / 2 ? "green" : "red",
                   }}
                 >
-                  {score} / {allQuestions.length}
+                  {score} / 10
                 </p>
               </div>
               {/* Retry Quiz button */}

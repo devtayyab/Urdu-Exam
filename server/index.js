@@ -9,6 +9,7 @@ import Classrouter from "./routes/classroute.js";
 import Lafzrouter from "./routes/lafzroutes.js";
 import Sliderouter from './routes/slideroute.js'
 import path from "path";
+import Shairrouter from "./routes/shairroutes.js";
 const __dirname = path.resolve();
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(
 );
 app.use(express.static(__dirname + "/uploads"));
 app.use(express.json());
+app.use("/shair", Shairrouter);
 app.use("/blog", Blogrouter);
 app.use("/lafz", Lafzrouter);
 app.use("/quiz", Quizrouter);

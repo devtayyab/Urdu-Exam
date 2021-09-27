@@ -1,10 +1,20 @@
 import { Share } from "@material-ui/icons";
 import Favorite from "@material-ui/icons/Favorite";
-import React from "react";
+import React, { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Button } from "@material-ui/core";
 import Roll from 'react-reveal/Roll';
-export const Poetslider = () => (
+import { useDispatch , useSelector} from "react-redux";
+import { Shairget } from "../store/action/blog";
+export const Poetslider = () => {
+const dispatch = useDispatch()
+useEffect(()=>{
+
+  dispatch(Shairget())
+}, [dispatch])
+const shair = useSelector(state => state.shair)
+console.log("Shair", shair)
+return(
  <div>
     <p
   style={{
@@ -27,10 +37,11 @@ export const Poetslider = () => (
     showStatus= {false}
   >
     
-<Roll left>
+
+ {shair.map((e,i)=><>
+  <Roll left>
     <div>
- 
-      <p
+  <p
         style={{
           display: "flex",
           height: "100px",
@@ -44,11 +55,11 @@ export const Poetslider = () => (
           direction: "rtl",
         }}
       >
-        محبتیں تو فقط انتہائیں مانگتی ہیں
+        {e?.pehla}
         <br />
-        محبتوں میں بھلا اعتدال کیا کرنا
+        {e?.dosra}
       </p>
-      <p>مضطر خیرآبادی</p>
+      <p>{e?.shiar}</p>
       <p>
         <Button>
           <Favorite
@@ -65,10 +76,13 @@ export const Poetslider = () => (
           ></Share>
         </Button>
       </p>
-    </div>
+      </div>
     </Roll>
-    <Roll left>
-    <div>
+  </>)}
+     
+    
+    {/* <Roll left> */}
+    {/* <div>
       <p
         style={{
           display: "flex",
@@ -185,7 +199,8 @@ export const Poetslider = () => (
           ></Share>
         </Button>
       </p>
-    </div>
+    </div> */}
   </Carousel>
   </div>
-);
+)
+          }

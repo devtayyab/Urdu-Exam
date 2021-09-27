@@ -50,6 +50,16 @@ export const Slideget = () => {
     });
   };
 };
+export const Shairget = () => {
+  return async (dispatch) => {
+    const { data } = await axios.get(`${uri}/shair`);
+    console.log("shairaction", data);
+    dispatch({
+      type: "SHAIR",
+      payload: data,
+    });
+  };
+};
 export const Detailblog = (id) => {
   console.log("action" + id);
   return async (dispatch) => {

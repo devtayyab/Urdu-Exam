@@ -35,7 +35,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs({data}) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -65,9 +65,7 @@ export default function BasicTabs() {
             color: "grey",
           }}
         >
-          The humorous poetry of prominent Urdu satirist Dilawar Figar
-          (1929-1998) first became known when at a Mushaira in Badayun where
-          Dilip Kumar was also present, Shakil Badayuni, who was compering,
+         {data?.detail}
         </p>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -79,8 +77,7 @@ export default function BasicTabs() {
             color: "grey",
           }}
         >
-          kyā kahūñ us se ki jo baat samajhtā hī nahīñ vo to milne ko mulāqāt
-          samajhtā hī nahīñ{" "}
+         upcoming very soon ....{" "}
         </p>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -92,12 +89,7 @@ export default function BasicTabs() {
             color: "grey"
         }}
         >
-          Playfulness is a typical quality of the beloved and it makes her all
-          the more romantic and appealing. In other words, a beloved without
-          some amount of coquetry or playfulness would not be so romantic. You
-          may like to go through these examples that personify a beloved as one
-          who is now bouncy, now mischievous, now playful, and now full of light
-          wit.
+        upcoming very soon ....
         </p>
       </TabPanel>
     </Box>

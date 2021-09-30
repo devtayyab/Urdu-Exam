@@ -1,4 +1,6 @@
 import axios from "axios";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { db } from "../../config/config";
 const uri = "https://urduadmin.herokuapp.com";
 export const Quizget = () => {
   return async (dispatch) => {
@@ -52,12 +54,22 @@ export const Slideget = () => {
 };
 export const Shairget = () => {
   return async (dispatch) => {
-    const { data } = await axios.get(`${uri}/shair`);
-    console.log("shairaction", data);
-    dispatch({
-      type: "SHAIR",
-      payload: data,
+    const q = query(collection(db, "shair"));
+    onSnapshot(q, (querySnapshot) => {
+      console.log("iddd",querySnapshot)
+      const cities = [];
+      querySnapshot.forEach((doc) => {
+        cities.push(doc.data());
+      });
+      console.log("Current cities in CA: ", cities);
+      dispatch({
+        type: "SHAIR",
+        payload: cities,
+      });
     });
+    // const { data } = await axios.get(`${uri}/shair`);
+    // console.log("shairaction", data);
+   
   };
 };
 export const Detailblog = (id) => {

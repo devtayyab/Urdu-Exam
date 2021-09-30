@@ -22,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Griditem() {
   const classes = useStyles();
-
+  var currentdate = new Date();
+  var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
+  console.log("time", datetime);
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -45,7 +47,7 @@ export default function Griditem() {
                     direction: "rtl",
                   }}
                 >
-              سابقہ اردو اور معلوماتی سوالات
+                  سابقہ اردو اور معلوماتی سوالات
                 </p>
               </Bounce>
               <Link to="/quiz">
@@ -88,6 +90,7 @@ export default function Griditem() {
                   کیا آپ تیار ہیں؟
                 </p>
               </Bounce>
+
               <Link to="/class">
                 <Button color="inherit">
                   <p

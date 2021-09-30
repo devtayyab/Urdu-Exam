@@ -18,6 +18,7 @@ export const Biography = (props) => {
   React.useEffect(() => {
     dispatch(Detailblog(id));
   }, [dispatch]);
+  var result = state.detail.slice(0, 35) + (state?.detail.length > 35 ? "..." : "")
   return (
     <>
       <div
@@ -74,10 +75,11 @@ export const Biography = (props) => {
             color: "grey",
           }}
         >
-         {state?.detail}
+         {result}
+        
         </p>
       </div>
-      <BasicTabs></BasicTabs>
+      <BasicTabs data={state}></BasicTabs>
       <SimpleBottomNavigation></SimpleBottomNavigation>
     </>
   );

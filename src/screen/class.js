@@ -6,9 +6,8 @@ import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Classget, Quizget } from "../store/action/blog";
-import uniqueRandom from 'unique-random';
+import uniqueRandom from "unique-random";
 const Classscreen = () => {
- 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
   const [correctOption, setCorrectOption] = useState(null);
@@ -16,15 +15,15 @@ const Classscreen = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
-  const [question, setquestion]= useState(0)
+  const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.classdata.reverse());
   console.log(state);
   useEffect(() => {
     dispatch(Classget());
   }, [dispatch]);
-  const allQuestions = state
-  console.log("aaa",allQuestions)
+  const allQuestions = state;
+  console.log("aaa", allQuestions);
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
     setCurrentOptionSelected(selectedOption);
@@ -43,22 +42,29 @@ const Classscreen = () => {
       // Show Score Modal
       setShowScoreModal(true);
     } else {
-     const random=   uniqueRandom(1, state.length-1)
+      const random = uniqueRandom(1, state.length - 1);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-     
-      setquestion(random())
+
+      setquestion(random());
       setCurrentOptionSelected(null);
       setCorrectOption(null);
       setIsOptionsDisabled(false);
       setShowNextButton(false);
     }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleNext();
+    }, 10000);
+    return () => clearTimeout(timer);
+  });
   //     Animated.timing(progress, {
   //         toValue: currentQuestionIndex+1,
   //         duration: 1000,
   //         useNativeDriver: false
   //     }).start();
   // }
+
   const restartQuiz = () => {
     setShowScoreModal(false);
 
@@ -252,7 +258,17 @@ const Classscreen = () => {
           {/* Options */}
           {renderOptions()}
           {/* Next Button */}
-          {renderNextButton()}
+
+          {/* {
+            (limitedInterval = setInterval(() => {
+              handleNext();
+
+              if (currentQuestionIndex > 10) {
+                clearInterval(limitedInterval);
+                console.log("interval cleared!");
+              }
+            }, 30000))
+          } */}
         </>
       ) : (
         <>

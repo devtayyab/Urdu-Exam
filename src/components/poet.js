@@ -43,9 +43,21 @@ export default function Poet() {
             textDecoration: "none",
           }}
         >
-          <Link to={`/biography/${e._id}`} params={{ testvalue: "hello" }}>
+          <Link
+            to={{
+              pathname: `/biography/${e.blogs._id}`,
+              query: {
+                title: e.blogs.title,
+                dob: e.blogs.dob,
+                detail: e.blogs.detail,
+                subtitle: e.blogs.title,
+                imagefile: e.imagefile,
+              },
+            }}
+          >
+            {/* <Link to={{path}`/biography/${e.blogs._id, e}`} params={{ testvalue: e }}> */}
             <Avatar
-              src={`https://urduadmin.herokuapp.com/${e.imagefile}`}
+              src={e.imagefile}
               style={{
                 width: "150px",
                 height: "150px",
@@ -57,9 +69,9 @@ export default function Poet() {
                 color: "black",
               }}
             >
-              {e.title}
+              {e.blogs.title}
               <br />
-              1722-1810
+              {e.blogs.dob}
             </p>
           </Link>
         </div>

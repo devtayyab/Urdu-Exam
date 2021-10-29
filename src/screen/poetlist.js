@@ -28,10 +28,10 @@ export default function PoetList() {
        <ListItem alignItems="flex-start">
         <Button>
         <ListItemAvatar>
-          <Avatar src={`https://urduadmin.herokuapp.com/${e.imagefile}`} />
+          <Avatar src={e.imagefile} />
         </ListItemAvatar>
         <ListItemText
-          primary={e.title}
+          primary={e.blogs.title}
           secondary={
             <React.Fragment>
               <Typography
@@ -40,10 +40,10 @@ export default function PoetList() {
                 variant="body2"
                 color="text.primary"
               >
-                {e.subtitle}
+                {e.blogs.subtitle}
               </Typography>
               {"----"}
-              {e.detail}
+              {e.blogs.detail}
             </React.Fragment>
           }
         />

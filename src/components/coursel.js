@@ -26,11 +26,7 @@ export const Slider = () => {
     >
       {state.map((e, i) => (
         <div key={i}>
-          <img
-            alt=""
-            src={`https://urduadmin.herokuapp.com/slider/${e.imagefile}`}
-            height={250}
-          />
+          <img alt="" src={e.imagefile} height={250} />
         </div>
       ))}
     </Carousel>

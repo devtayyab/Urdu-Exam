@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ContactUs from "./screen/contact";
 import About from "./screen/About";
 import Quizscreen from "./screen/quiz";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
 import Start from "./screen/start";
 import Classscreen from "./screen/class";
 import { useDispatch } from "react-redux";
@@ -33,7 +31,7 @@ function App() {
           <Route exact path="/class">
             <Classscreen></Classscreen>
           </Route>
-          <Route exact path="/biography/:id">
+          <Route exact path="/biography/:id?/:data?">
             <Biography />
           </Route>
           <Route exact path="/poetlist">

@@ -5,10 +5,10 @@ import { data } from "../data/QuizData";
 import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "react-loader-spinner";
 import { Quizget } from "../store/action/blog";
-import uniqueRandom from 'unique-random';
+import uniqueRandom from "unique-random";
 const Quizscreen = () => {
- 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
   const [correctOption, setCorrectOption] = useState(null);
@@ -16,14 +16,16 @@ const Quizscreen = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
-  const [question, setquestion]= useState(0)
+  const [loading, setloading] = useState(true);
+  const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.quizdata);
   console.log(state);
   useEffect(() => {
     dispatch(Quizget());
+    setloading(false);
   }, [dispatch]);
-  const allQuestions = state
+  const allQuestions = state;
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[question]["correct_option"];
     setCurrentOptionSelected(selectedOption);
@@ -42,10 +44,10 @@ const Quizscreen = () => {
       // Show Score Modal
       setShowScoreModal(true);
     } else {
-     const random=   uniqueRandom(1, state.length-2)
+      const random = uniqueRandom(1, state.length - 2);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-     
-      setquestion(random())
+
+      setquestion(random());
       setCurrentOptionSelected(null);
       setCorrectOption(null);
       setIsOptionsDisabled(false);
@@ -244,14 +246,23 @@ const Quizscreen = () => {
       {currentQuestionIndex < 10 ? (
         <>
           <h1>Quiz</h1>
-          {/* ProgressBar */}
-          {/* { renderProgressBar() } */}
-          {/* Question */}
-          {renderQuestion()}
-          {/* Options */}
-          {renderOptions()}
-          {/* Next Button */}
-          {renderNextButton()}
+          {loading ? (
+            <Loader
+              type="Bars"
+              color="Blue"
+              height={100}
+              width={100}
+              timeout={5000} //3 secs
+            />
+          ) : (
+            <>
+              {renderQuestion()}
+              {/* Options */}
+              {renderOptions()}
+              {/* Next Button */}
+              {renderNextButton()}
+            </>
+          )}
         </>
       ) : (
         <>

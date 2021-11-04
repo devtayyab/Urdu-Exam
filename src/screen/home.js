@@ -2,6 +2,7 @@ import React from "react";
 import { Slider } from "../components/coursel";
 import Navbar from "../components/navbar";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Offline, Online } from "react-detect-offline";
 import { Poetslider } from "../components/poetSlider";
 import Griditem from "../components/grid";
 import Poet from "../components/poet";

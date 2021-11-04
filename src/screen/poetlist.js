@@ -1,4 +1,4 @@
-import * as React  from "react";
+import * as React from "react";
 import {
   List,
   ListItem,
@@ -7,7 +7,7 @@ import {
   Avatar,
   Typography,
   ListItemAvatar,
-Button
+  Button,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { Blogget } from "../store/action/blog";
@@ -22,38 +22,39 @@ export default function PoetList() {
   const state = useSelector((state) => state.blog);
   return (
     <div>
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-      <Navbar />
-      {state.map((e)=><>
-       <ListItem alignItems="flex-start">
-        <Button>
-        <ListItemAvatar>
-          <Avatar src={e.imagefile} />
-        </ListItemAvatar>
-        <ListItemText
-          primary={e.blogs.title}
-          secondary={
-            <React.Fragment>
-              <Typography
-                sx={{ display: "inline" }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                {e.blogs.subtitle}
-              </Typography>
-              {"----"}
-              {e.blogs.detail}
-            </React.Fragment>
-          }
-        />
-        </Button>
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      </>
-      )}
-    </List>
-    <SimpleBottomNavigation></SimpleBottomNavigation>
+      <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+        <Navbar />
+        {state.map((e) => (
+          <>
+            <ListItem alignItems="flex-start">
+              <Button>
+                <ListItemAvatar>
+                  <Avatar src={e.imagefile} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={e.blogs.title}
+                  secondary={
+                    <React.Fragment>
+                      <Typography
+                        sx={{ display: "inline" }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                      >
+                        {e.blogs.subtitle}
+                      </Typography>
+                      {"----"}
+                      {e.blogs.detail}
+                    </React.Fragment>
+                  }
+                />
+              </Button>
+            </ListItem>
+            <Divider variant="inset" component="li" />
+          </>
+        ))}
+      </List>
+      <SimpleBottomNavigation></SimpleBottomNavigation>
     </div>
   );
 }

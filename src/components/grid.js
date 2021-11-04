@@ -23,8 +23,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Griditem() {
   const classes = useStyles();
   var currentdate = new Date();
-  var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
+  var datetime = currentdate.getHours();
   console.log("time", datetime);
+  var direction= datetime > 7 && datetime < 8  ? "class" : "noclass"
+  console.log(direction)
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -91,7 +93,7 @@ export default function Griditem() {
                 </p>
               </Bounce>
 
-              <Link to="/class">
+              <Link  to={direction}>
                 <Button color="inherit">
                   <p
                     style={{

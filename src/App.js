@@ -6,6 +6,7 @@ import PoetList from "./screen/poetlist";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ContactUs from "./screen/contact";
 import About from "./screen/About";
+import Notime from "./screen/notime";
 import Quizscreen from "./screen/quiz";
 import Start from "./screen/start";
 import Classscreen from "./screen/class";
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(Lafzsget());
   });
- 
+
   return (
     <div
       style={{
@@ -25,9 +26,10 @@ function App() {
     >
       <Router>
         <Switch>
-          <Route exact path="/start">
-            <Start></Start>
+          <Route exact path="/">
+            <Home />
           </Route>
+
           <Route exact path="/class">
             <Classscreen></Classscreen>
           </Route>
@@ -43,9 +45,10 @@ function App() {
           <Route exact path="/about">
             <About />
           </Route>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/noclass">
+            <Notime></Notime>
           </Route>
+
           <Route exact path="/quiz">
             <Quizscreen></Quizscreen>
           </Route>

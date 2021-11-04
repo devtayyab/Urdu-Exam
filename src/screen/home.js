@@ -10,6 +10,8 @@ import { Biography } from "./biography";
 import SimpleBottomNavigation from "../components/tabbar";
 import SimplePaper from "../components/lafz";
 export default function Home() {
+  var time = new Date();
+  var hourr = time.getHours();
   return (
     <div
       style={{

@@ -87,12 +87,12 @@ export default function ContactUs() {
                   you can contact with us:
                 </p>
                 <p>+92 302 2605093</p>
-                <p>urduexamonline@gmail.com</p>
+                <p>onlineurduexam@gmail.com</p>
               </Bounce>
               <div>
               <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
                 <FacebookRoundedIcon></FacebookRoundedIcon></a>
-                <a href = "mailto: urduexamonline@gmail.com ">
+                <a href = "mailto: onlineurduexam@gmail.com">
                 <MailOutlineIcon color="action"></MailOutlineIcon></a>
               </div>
             </Paper>

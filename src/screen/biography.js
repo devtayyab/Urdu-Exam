@@ -76,7 +76,7 @@ export const Biography = (props) => {
                   fontSize: "10px",
                 }}
               >
-                {location.query?.dob} || Delhi
+                {location.query?.dob} 
               </p>
             </div>
           </div>

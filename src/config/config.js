@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDBjGeh6hU23rVysy2Nw3jCR8b24LS2brc",
-  authDomain: "urdu-exam.firebaseapp.com",
-  projectId: "urdu-exam",
-  storageBucket: "urdu-exam.appspot.com",
-  messagingSenderId: "992746306439",
-  appId: "1:992746306439:web:72d814ada89adec7977122",
-  measurementId: "G-V9PLK3523F"
+  apiKey: "AIzaSyAt0HguftEQu-eHjGKEYfPVnOTjOibQgNg",
+  authDomain: "onlineurduexams.firebaseapp.com",
+  projectId: "onlineurduexams",
+  storageBucket: "onlineurduexams.appspot.com",
+  messagingSenderId: "499349964505",
+  appId: "1:499349964505:web:649f89694476314a6ce0c8",
+  measurementId: "G-VN0QVWT82N"
 };
 
 // Initialize Firebase

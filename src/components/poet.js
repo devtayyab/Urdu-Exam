@@ -32,7 +32,7 @@ export default function Poet() {
         scrollBehavior: "smooth",
       }}
     >
-      <h5>سوانحی خاکے</h5>
+      <h5 style={{paddingLeft: '40px'}}>سوانحی خاکے</h5>
       {state.map((e) => (
         <div
           style={{

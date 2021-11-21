@@ -1,16 +1,18 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import img from "../images/rait.jpg";
+
 import { Button } from "@material-ui/core";
-import img1 from "../images/first.jpg";
+
 import Slide from "react-reveal/Slide";
 import Bounce from "react-reveal/Bounce";
 import * as React from "react";
 import Box from "@mui/material/Box";
+
 import TextField from "@mui/material/TextField";
 import FacebookRoundedIcon from "@material-ui/icons/Facebook";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import YouTubeIcon from '@material-ui/icons/YouTube';
 import SimpleBottomNavigation from "../components/tabbar";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,38 +37,38 @@ export default function ContactUs() {
       }}>Contact Us</h1>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={5} style={{
-           margin: 30
+          margin: 30
         }}>
           <Slide right>
-          <form aria-controls>
-            <Box
-              component="form"
-              sx={{
-                "& > :not(style)": { m: 1, width: "25ch" },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              
-              <TextField id="standard-basic" label="Name" variant="standard" />
-              <TextField id="standard-basic" label="phone" variant="standard" />
-              <TextField id="standard-basic" label="Subject" variant="standard" />
-            </Box>
-            <TextField
-              id="standard-multiline-static"
-              label="Message"
-              multiline
-              rows={4}
-              defaultValue="write message"
-              variant="standard"
-            />
-            <br />
-            <Button variant="outlined">Submit</Button>
+            <form aria-controls>
+              <Box
+                component="form"
+                sx={{
+                  "& > :not(style)": { m: 1, width: "25ch" },
+                }}
+                noValidate
+                autoComplete="off"
+              >
+
+                <TextField id="standard-basic" label="Name" variant="standard" />
+                <TextField id="standard-basic" label="phone" variant="standard" />
+                <TextField id="standard-basic" label="Subject" variant="standard" />
+              </Box>
+              <TextField
+                id="standard-multiline-static"
+                label="Message"
+                multiline
+                rows={4}
+                defaultValue="write message"
+                variant="standard"
+              />
+              <br />
+              <Button variant="outlined">Submit</Button>
             </form>
           </Slide>
         </Grid>
 
-        <Grid item xs={12} sm={5}>
+        <Grid item xs={12} sm={5} style={{marginTop: "15px"}}>
           <Slide left>
             <Paper
               className={classes.paper}
@@ -90,10 +92,12 @@ export default function ContactUs() {
                 <p>onlineurduexam@gmail.com</p>
               </Bounce>
               <div>
-              <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
-                <FacebookRoundedIcon></FacebookRoundedIcon></a>
-                <a href = "mailto: onlineurduexam@gmail.com">
-                <MailOutlineIcon color="action"></MailOutlineIcon></a>
+                <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
+                  <FacebookRoundedIcon ></FacebookRoundedIcon></a>
+                  <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
+                  <YouTubeIcon color="action"></YouTubeIcon></a>
+                <a href="mailto: onlineurduexam@gmail.com">
+                  <MailOutlineIcon color="action"></MailOutlineIcon></a>
               </div>
             </Paper>
           </Slide>

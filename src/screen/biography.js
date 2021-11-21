@@ -60,6 +60,7 @@ export const Biography = (props) => {
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
+                  fontFamily :'Noto Nastaliq Urdu',
                 }}
               >
                 <h3>{location.query?.title}</h3>

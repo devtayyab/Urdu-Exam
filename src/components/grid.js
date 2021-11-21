@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Button } from "@material-ui/core";
 import img1 from "../images/first.jpg";
+import rait from "../images/rait.jpeg"
 import Slide from "react-reveal/Slide";
 import Bounce from "react-reveal/Bounce";
 import { Link } from "react-router-dom";
@@ -37,6 +38,7 @@ export default function Griditem() {
                 backgroundImage: `url(${img1})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
+               
               }}
             >
               <Bounce bottom>
@@ -46,19 +48,27 @@ export default function Griditem() {
                     fontFamily: "Noto Naskh Arabic",
                     fontSize: "1.2em",
                     direction: "rtl",
+                    display: "flex",
+                    justifyContent: "flex-start"
                   }}
                 >
                   سابقہ اردو اور معلوماتی سوالات
                 </p>
               </Bounce>
               <Link to="/quiz">
-                <Button color="inherit">
+                <Button color="inherit" style={{
+                  fontFamily: "serif",
+                  display: "flex",
+                  justifyContent: "flex-end"
+                }}>
                   <p
                     style={{
                       color: "white",
                       fontStyle: "italic",
                       fontSize: 20,
                       fontFamily: "serif",
+                      display: "flex",
+                      justifyContent: "flex-end"
                     }}
                   >
                     Start Quiz
@@ -74,7 +84,7 @@ export default function Griditem() {
             <Paper
               className={classes.paper}
               style={{
-                backgroundImage: `url(${img1})`,
+                backgroundImage: `url(${rait})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
               }}
@@ -86,6 +96,8 @@ export default function Griditem() {
                     fontFamily: "Noto Naskh Arabic",
                     fontSize: "1.2em",
                     direction: "rtl",
+                    display: "flex",
+                    justifyContent: "flex-start"
                   }}
                 >
                   کیا آپ تیار ہیں؟
@@ -93,13 +105,18 @@ export default function Griditem() {
               </Bounce>
 
               <Link  to={direction}>
-                <Button color="inherit">
+                <Button color="inherit" style={{
+                   display: "flex",
+                   justifyContent: "flex-end"
+                }}>
                   <p
                     style={{
                       color: "white",
                       fontStyle: "italic",
                       fontSize: 20,
                       fontFamily: "serif",
+                      display: "flex",
+                      justifyContent: "flex-end"
                     }}
                   >
                     Online Class

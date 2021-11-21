@@ -2,12 +2,14 @@ import { Button, Card, Paper } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import { data } from "../data/QuizData";
+import img1 from '../images/quizback.jpeg'
 import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "react-loader-spinner";
 import { Quizget } from "../store/action/blog";
 import uniqueRandom from "unique-random";
+import { width } from "@mui/system";
 const Quizscreen = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -82,12 +84,18 @@ const Quizscreen = () => {
       <div
         style={{
           marginVertical: 40,
+          padding: "10px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          // width: "80%"
         }}
       >
         {/* Question Counter */}
         <div
           style={{
-            flexDirection: "row",
+            // flexDirection: "row",
             alignItems: "flex-end",
           }}
         >
@@ -106,6 +114,12 @@ const Quizscreen = () => {
         <p
           style={{
             fontSize: 30,
+            border: "2px solid #3b5998",
+            width: "80%",  
+            borderRadius: "20px",
+
+            // display: "flex",
+            justifyContent: "center"
           }}
         >
           {allQuestions[question]?.question}
@@ -123,19 +137,23 @@ const Quizscreen = () => {
               disabled={isOptionsDisabled}
               key={option}
               style={{
-                borderWidth: 2,
+                border: "2px solid #3b5998",
+                // width: "80%",  
+
+                justifyContent: "center",
+                borderWidth: "1px",
                 borderColor:
                   option == correctOption
                     ? "lightgreen"
                     : option == currentOptionSelected
-                    ? "#AA1115"
-                    : "",
+                      ? "#AA1115"
+                      : "",
                 backgroundColor:
                   option == correctOption
                     ? "lightgreen"
                     : option == currentOptionSelected
-                    ? "#AA1115"
-                    : "",
+                      ? "#AA1115"
+                      : "",
 
                 borderRadius: 20,
                 width: "80%",
@@ -241,11 +259,23 @@ const Quizscreen = () => {
         flex: 1,
         textAlign: "center",
         justifyContent: "center",
+        // backgroundImage: `url(${img1})`,
+        // // backgroundRepeat: "no-repeat",
+        // backgroundSize: "cover",
+
+
       }}
     >
       {currentQuestionIndex < 10 ? (
-        <>
-          <h1>Quiz</h1>
+        <div style={{
+          backgroundImage: `url(${img1})`,
+          // backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+  
+        }}>
+          <h1 style={{
+            fontFamily: 'Noto Nastaliq Urdu',
+          }}>سوالات</h1>
           {loading ? (
             <Loader
               type="Bars"
@@ -263,7 +293,7 @@ const Quizscreen = () => {
               {renderNextButton()}
             </>
           )}
-        </>
+        </div>
       ) : (
         <>
           <div

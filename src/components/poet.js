@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Blogget } from "../store/action/blog";
-import img from "../images/24.jpg";
+
 import { useDispatch, useSelector } from "react-redux";
 import Reveal from "react-reveal/Reveal";
 import { Avatar } from "@material-ui/core";
@@ -32,7 +32,7 @@ export default function Poet() {
         scrollBehavior: "smooth",
       }}
     >
-      <h5 style={{paddingLeft: '40px'}}>سوانحی خاکے</h5>
+      <h5 style={{paddingLeft: '40px', fontFamily :'Noto Nastaliq Urdu', color:"#3b5998"}}>سوانحی خاکے</h5>
       {state.map((e) => (
         <div
           style={{
@@ -59,8 +59,8 @@ export default function Poet() {
             <Avatar
               src={e.imagefile}
               style={{
-                width: "150px",
-                height: "150px",
+                width: "100px",
+                height: "100px",
               }}
             ></Avatar>
             <br />

@@ -63,6 +63,7 @@ export default function BasicTabs({data}) {
             padding: "2px",
             margin: "4px",
             color: "grey",
+            fontFamily :'Noto Nastaliq Urdu'
           }}
         >
          {data?.detail}

@@ -9,24 +9,35 @@ export default function SimplePaper() {
   console.log("lafz", state);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        textAlign: "center",
-        "& > :not(style)": {
-          m: 1,
-          width: "80%",
-          height: 140,
-        },
-      }}
-    >
-      <Paper elevation={3}>
-        <h4>{state[0]?.lafz}</h4>
-        <pre>{state[0]?.hijay}</pre>
-        <h6>{state[0]?.meaning}</h6>
-      </Paper>
-    </Box>
+    <>
+      <p
+        style={{
+          fontFamily: 'Noto Nastaliq Urdu',
+          fontSize: "1.6em",
+          direction: "rtl",
+          textAlign: 'center',
+          color:"#3b5998"
+        }}
+      >آج کا لفظ</p>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          textAlign: "center",
+          "& > :not(style)": {
+            m: 1,
+            width: "80%",
+            height: 140,
+          },
+        }}
+      >
+        <Paper elevation={3}>
+          <h4>{state[0]?.lafz}</h4>
+          <pre>{state[0]?.hijay}</pre>
+          <h6>{state[0]?.meaning}</h6>
+        </Paper>
+      </Box>
+    </>
   );
 }

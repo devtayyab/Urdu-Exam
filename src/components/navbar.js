@@ -136,7 +136,7 @@ export default function Navbar() {
        
         <p style={{
           
-            fontFamily: "Noto Naskh Arabic",
+          fontFamily :'Noto Nastaliq Urdu',
             fontSize: "1.2em",
             direction: "rtl",
           }}>
@@ -146,7 +146,7 @@ export default function Navbar() {
       <MenuItem>
       <p style={{
          
-            fontFamily: "Noto Naskh Arabic",
+         fontFamily :'Noto Nastaliq Urdu',
             fontSize: "1.2em",
             direction: "rtl",
           }}>بلاگ</p>
@@ -194,18 +194,34 @@ export default function Navbar() {
             <IconButton aria-label="show 4 new mails" color="inherit">
           <p style={{
             color:'white',
-            fontFamily: "Noto Naskh Arabic",
-            fontSize: "0.7em",
+            fontFamily :'Noto Nastaliq Urdu',
+            fontSize: "0.5em",
             direction: "rtl",
-          }}>شاعر</p>
+          }}>سوانح</p>
+          </IconButton>
+           <IconButton aria-label="show 4 new mails" color="inherit">
+          <p style={{
+            color:'white',
+            fontFamily :'Noto Nastaliq Urdu',
+            fontSize: "0.5em",
+            direction: "rtl",
+          }}>کلاس</p>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
             <p style={{
             color:'white',
-            fontFamily: "Noto Naskh Arabic",
-            fontSize: "0.7em",
+            fontFamily :'Noto Nastaliq Urdu',
+            fontSize: "0.5em",
             direction: "rtl",
-          }}>بلاگ</p>
+          }}>سوالات</p>
+              </IconButton>
+              <IconButton aria-label="show 17 new notifications" color="inherit">
+            <p style={{
+            color:'white',
+            fontFamily :'Noto Nastaliq Urdu',
+            fontSize: "0.5em",
+            direction: "rtl",
+          }}>کتب</p>
               </IconButton>
             <IconButton
               edge="end"

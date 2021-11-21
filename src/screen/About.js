@@ -8,6 +8,7 @@ import { Button } from "@material-ui/core";
 import Slide from "react-reveal/Slide";
 import Bounce from "react-reveal/Bounce";
 import SimpleBottomNavigation from "../components/tabbar";
+import { width } from "@mui/system";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,19 +34,22 @@ export default function About() {
               style={
                 {
                   display: 'flex',
-                 justifyContent:'center',
-                 alignItems:'center'
-                 
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: "80%",
+                  margin: "auto"
+
+
                 }
               }
             >
               <Bounce bottom>
                 <p
-                style={{
-                  fontFamily: "Noto Naskh Arabic",
+                  style={{
+                    fontFamily: 'Noto Nastaliq Urdu',
                     fontSize: "1.2em",
                     direction: "rtl",
-                }}
+                  }}
                 >
                   یہ خالص اردو کی تیاری کے حوالے سے بنائی گئی ایک کوشش ہے۔ہمارے
                   ہاں تیاری کے اور بھی بہت سارے وسائل رائج ہیں جن سے طلبا فائدہ
@@ -65,7 +69,7 @@ export default function About() {
                   کو درست کر لیں گئے۔ ذیشان ادیب
                 </p>
               </Bounce>
-             
+
             </Paper>
           </Slide>
         </Grid>

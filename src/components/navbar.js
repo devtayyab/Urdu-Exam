@@ -116,8 +116,8 @@ export default function Navbar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link to="/quiz">سوالات</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link to="/class">کلاس</Link></MenuItem>
     </Menu>
   );
 
@@ -140,7 +140,7 @@ export default function Navbar() {
             fontSize: "1.2em",
             direction: "rtl",
           }}>
-             <Link to="/poetlist">شاعر</Link>
+             <Link to="/poetlist">سوانح</Link>
             </p>
       </MenuItem>
       <MenuItem>
@@ -149,10 +149,16 @@ export default function Navbar() {
          fontFamily :'Noto Nastaliq Urdu',
             fontSize: "1.2em",
             direction: "rtl",
-          }}>بلاگ</p>
+          }}> <Link to="/">کتب</Link></p>
       </MenuItem>
+   
       <MenuItem onClick={handleProfileMenuOpen}>
-       Quiz
+        <p style={{
+          fontFamily :'Noto Nastaliq Urdu',
+          fontSize: "1.2em",
+          direction: "rtl",
+        }}> آزمائش</p>
+   
       </MenuItem>
     </Menu>
   );
@@ -197,7 +203,10 @@ export default function Navbar() {
             fontFamily :'Noto Nastaliq Urdu',
             fontSize: "0.5em",
             direction: "rtl",
-          }}>سوانح</p>
+          }}> <Link style={{
+            color:"white",
+            textDecoration: 'none' 
+          }} to="/poetlist">سوانح</Link></p>
           </IconButton>
            <IconButton aria-label="show 4 new mails" color="inherit">
           <p style={{
@@ -205,7 +214,10 @@ export default function Navbar() {
             fontFamily :'Noto Nastaliq Urdu',
             fontSize: "0.5em",
             direction: "rtl",
-          }}>کلاس</p>
+          }}><Link style={{
+            color:"white",
+            textDecoration: 'none' 
+          }} to="/class">کلاس</Link></p>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
             <p style={{
@@ -213,7 +225,10 @@ export default function Navbar() {
             fontFamily :'Noto Nastaliq Urdu',
             fontSize: "0.5em",
             direction: "rtl",
-          }}>سوالات</p>
+          }}><Link style={{
+            color:"white",
+            textDecoration: 'none' 
+          }} to="/quiz">سوالات</Link></p>
               </IconButton>
               <IconButton aria-label="show 17 new notifications" color="inherit">
             <p style={{

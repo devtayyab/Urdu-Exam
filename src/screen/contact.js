@@ -94,7 +94,7 @@ export default function ContactUs() {
               <div>
                 <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
                   <FacebookRoundedIcon ></FacebookRoundedIcon></a>
-                  <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
+                  <a href="https://www.youtube.com/channel/UCdJhd4WukYjF97ChHlL9dgQ">
                   <YouTubeIcon color="action"></YouTubeIcon></a>
                 <a href="mailto: onlineurduexam@gmail.com">
                   <MailOutlineIcon color="action"></MailOutlineIcon></a>

@@ -32,7 +32,15 @@ export default function Poet() {
         scrollBehavior: "smooth",
       }}
     >
-      <h5 style={{paddingLeft: '40px', fontFamily :'Noto Nastaliq Urdu', color:"#3b5998"}}>سوانحی خاکے</h5>
+      <h5
+        style={{
+          paddingLeft: "40px",
+          fontFamily: "Noto Nastaliq Urdu",
+          color: "#3b5998",
+        }}
+      >
+        سوانحی خاکے
+      </h5>
       {state.map((e) => (
         <div
           style={{
@@ -76,93 +84,6 @@ export default function Poet() {
           </Link>
         </div>
       ))}
-      {/* <div
-        style={{
-          display: "inline-block",
-          color: "white",
-          textAlign: "center",
-          padding: "4px",
-          textDecoration: "none",
-        }}
-      >
-        <Link to="/biography">
-          <Avatar
-            src={img}
-            style={{
-              width: "150px",
-              height: "150px",
-            }}
-          ></Avatar>
-          <br />
-          <p
-            style={{
-              color: "black",
-            }}
-          >
-            میر تقی میر
-            <br />
-            1722-1810
-          </p>
-        </Link>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          color: "white",
-          textAlign: "center",
-          padding: "4px",
-          textDecoration: "none",
-        }}
-      >
-        <Link to="/biography">
-          <Avatar
-            src={img}
-            style={{
-              width: "150px",
-              height: "150px",
-            }}
-          ></Avatar>
-        </Link>
-        <br />
-        <p
-          style={{
-            color: "black",
-          }}
-        >
-          میر تقی میر
-          <br />
-          1722-1810
-        </p>
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          color: "white",
-          textAlign: "center",
-          padding: "4px",
-          textDecoration: "none",
-        }}
-      >
-        <Link to="/biography">
-          <Avatar
-            src={img}
-            style={{
-              width: "150px",
-              height: "150px",
-            }}
-          ></Avatar>
-          <br />
-          <p
-            style={{
-              color: "black",
-            }}
-          >
-            میر تقی میر
-            <br />
-            1722-1810
-          </p>
-        </Link>
-      </div> */}
     </div>
   );
 }

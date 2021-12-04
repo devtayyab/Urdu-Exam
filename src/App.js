@@ -12,6 +12,7 @@ import Start from "./screen/start";
 import Classscreen from "./screen/class";
 import { useDispatch } from "react-redux";
 import { Blogget, Lafzsget } from "./store/action/blog";
+import Gazal from "./screen/gazzal";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,7 +49,12 @@ function App() {
           <Route exact path="/noclass">
             <Notime></Notime>
           </Route>
-
+          {/* <Route exact path="/nazm">
+            </p>
+          </Route> */}
+          <Route exact path="/gazzal">
+            <Gazal />
+          </Route>
           <Route exact path="/quiz">
             <Quizscreen></Quizscreen>
           </Route>

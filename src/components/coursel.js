@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Slideget } from "../store/action/blog";
 import { storages } from "../config/config";
 export const Slider = () => {
-  
-  
   const dispatch = useDispatch();
   const state = useSelector((state) => state.slide);
   console.log("slide", state);

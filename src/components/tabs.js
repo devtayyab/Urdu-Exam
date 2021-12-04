@@ -1,7 +1,8 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { Tab, Tabs, Typography, Box } from "@material-ui/core";
-
+import Gazzal from "./gazall";
+import Nazmm from "./nazmm";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -35,7 +36,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs({data}) {
+export default function BasicTabs({ data }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -63,34 +64,50 @@ export default function BasicTabs({data}) {
             padding: "2px",
             margin: "4px",
             color: "grey",
-            fontFamily :'Noto Nastaliq Urdu'
+            lineHeight: 2.5,
+            wordSpacing: '1px',
+            fontFamily: "Noto Nastaliq Urdu",
           }}
         >
-         {data?.detail}
+          {data?.detail}
         </p>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel
+        value={value}
+        index={1}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <p
-         style={{
+          style={{
             textAlign: "justify",
             padding: "2px",
             margin: "4px",
             color: "grey",
           }}
         >
-         upcoming very soon ....{" "}
+          <Gazzal />
         </p>
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        <p
+      <TabPanel
+        value={value}
+        index={2}
         style={{
+          display: "flex",  
+          justifyContent: "center",
+        }}
+      >
+        <p
+          style={{
             textAlign: "justify",
             padding: "2px",
             margin: "4px",
-            color: "grey"
-        }}
+            color: "grey",
+          }}
         >
-        upcoming very soon ....
+          <Nazmm />
         </p>
       </TabPanel>
     </Box>

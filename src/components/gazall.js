@@ -10,18 +10,20 @@ const style = {
   bgcolor: "background.paper",
 };
 
-export default function Gazzal() {
-  const gazzalls = [1, 2, 3, 4, , 6, 7];
+export default function Gazzal(gazal) {
+ 
+  const gazzalls = gazal.gazzal;
+  console.log(gazzalls);
   return (
     <List sx={style} component="nav" aria-label="mailbox folders">
       {gazzalls.map((v, i) => (
         <div>
           <ListItem button>
-            <ListItemText primary={v} />
-          </ListItem>
-          <Divider />
+            <ListItemText primary={v?.gazzal > 50 ? v.gazzal.slice(0, 50) : v?.gazzal} />
+          </ListItem> 
+      <Divider />
         </div>
-      ))}
-    </List> 
+       ))}
+    </List>
   );
 }

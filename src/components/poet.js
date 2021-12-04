@@ -60,6 +60,8 @@ export default function Poet() {
                 detail: e.blogs.detail,
                 subtitle: e.blogs.title,
                 imagefile: e.imagefile,
+                gazzal: e.gazzal,
+                nazm: e.nazm,
               },
             }}
           >

@@ -41,6 +41,7 @@ export default function BasicTabs({ data }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log("tabdata" , data)
   };
 
   return (
@@ -65,7 +66,7 @@ export default function BasicTabs({ data }) {
             margin: "4px",
             color: "grey",
             lineHeight: 2.5,
-            wordSpacing: '1px',
+            wordSpacing: "1px",
             fontFamily: "Noto Nastaliq Urdu",
           }}
         >
@@ -88,14 +89,14 @@ export default function BasicTabs({ data }) {
             color: "grey",
           }}
         >
-          <Gazzal />
+          <Gazzal gazzal={data?.gazzal} />
         </p>
       </TabPanel>
       <TabPanel
         value={value}
         index={2}
         style={{
-          display: "flex",  
+          display: "flex",
           justifyContent: "center",
         }}
       >
@@ -107,7 +108,7 @@ export default function BasicTabs({ data }) {
             color: "grey",
           }}
         >
-          <Nazmm />
+          <Nazmm nazm={data?.nazm} />
         </p>
       </TabPanel>
     </Box>

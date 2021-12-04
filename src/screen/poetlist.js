@@ -20,15 +20,15 @@ export default function PoetList() {
   React.useEffect(() => {
     dispatch(Blogget());
   }, [dispatch]);
-
   const state = useSelector((state) => state.blog);
-
+  console.log("poetlist", state);
   return (
     <div>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <Navbar />
         {state.map((e) => (
           <>
+            {console.log("eeeeee", e)}
             <ListItem alignItems="flex-start">
               <Button>
                 <ListItemAvatar>
@@ -43,6 +43,8 @@ export default function PoetList() {
                       detail: e.blogs.detail,
                       subtitle: e.blogs.title,
                       imagefile: e.imagefile,
+                      gazzal: e.gazzal,
+                      nazm: e.nazm,
                     },
                   }}
                 >

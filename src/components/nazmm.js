@@ -3,7 +3,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-
+import { Link } from "react-router-dom";
 const style = {
   width: "100%",
   maxWidth: 360,
@@ -16,10 +16,26 @@ export default function Nazamm(nazm) {
     <List sx={style} component="nav" aria-label="mailbox folders">
       {nazzms.map((v, i) => (
         <div>
-          <ListItem button>
-            <ListItemText primary={v?.nazm > 50 ? v.nazm.slice(0, 50) : v.nazm} />
-          </ListItem>
-          <Divider />
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "gray",
+            }}
+            to={{
+              pathname: `/nazm/${v?.id}`,
+              query: {
+                nazm: v.nazm,
+              },
+            }}
+          >
+            <ListItem button>
+              <ListItemText
+                primary={v?.nazm > 50 ? v.nazm.slice(0, 50) : v.nazm}
+                style={{ textDecoration: "none" }}
+              />
+            </ListItem>
+            <Divider />
+          </Link>
         </div>
       ))}
     </List>

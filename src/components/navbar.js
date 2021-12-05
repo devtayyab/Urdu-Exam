@@ -81,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar() {
+  var currentdate = new Date();
+  var datetime = currentdate.getHours();
+  console.log("time", datetime);
+  var direction= datetime > 7 && datetime < 8  ? "class" : "noclass"
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -117,7 +121,7 @@ export default function Navbar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}><Link to="/quiz">سوالات</Link></MenuItem>
-      <MenuItem onClick={handleMenuClose}><Link to="/class">کلاس</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link to="/direction">کلاس</Link></MenuItem>
     </Menu>
   );
 
@@ -217,7 +221,7 @@ export default function Navbar() {
           }}><Link style={{
             color:"white",
             textDecoration: 'none' 
-          }} to="/class">کلاس</Link></p>
+          }} to={direction}>کلاس</Link></p>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
             <p style={{

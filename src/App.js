@@ -13,6 +13,7 @@ import Classscreen from "./screen/class";
 import { useDispatch } from "react-redux";
 import { Blogget, Lafzsget } from "./store/action/blog";
 import Gazal from "./screen/gazzal";
+import Nazm from "./screen/nazm";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,6 +38,12 @@ function App() {
           <Route exact path="/biography/:id?/:data?">
             <Biography />
           </Route>
+          <Route exact path="/nazm/:id?/:data?">
+            <Nazm />
+          </Route>
+          <Route exact path="/gazzal/:id?/:data?">
+            <Gazal />
+          </Route>
           <Route exact path="/poetlist">
             <PoetList />
           </Route>
@@ -52,9 +59,9 @@ function App() {
           {/* <Route exact path="/nazm">
             </p>
           </Route> */}
-          <Route exact path="/gazzal">
+          {/* <Route exact path="/gazzal">
             <Gazal />
-          </Route>
+          </Route> */}
           <Route exact path="/quiz">
             <Quizscreen></Quizscreen>
           </Route>

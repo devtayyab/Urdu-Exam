@@ -1,7 +1,7 @@
 import { Button, Card, Paper } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
-import { data } from "../data/QuizData";
+import img1 from "../images/quizback.jpg";
 import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -111,6 +111,7 @@ const Classscreen = () => {
         <p
           style={{
             fontSize: 30,
+            fontFamily: "Noto Nastaliq Urdu",
           }}
         >
           {allQuestions[currentQuestionIndex]?.question}
@@ -249,7 +250,11 @@ const Classscreen = () => {
       }}
     >
       {currentQuestionIndex < 10 ? (
-        <>
+        <div  style={{
+          backgroundImage: `url(${img1})`,
+          // backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}>
           <h1>Live Class</h1>
           {/* ProgressBar */}
           {/* { renderProgressBar() } */}
@@ -269,7 +274,7 @@ const Classscreen = () => {
               }
             }, 30000))
           } */}
-        </>
+        </div>
       ) : (
         <>
           <div

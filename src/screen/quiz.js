@@ -2,7 +2,7 @@ import { Button, Card, Paper } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import { data } from "../data/QuizData";
-import img1 from '../images/quizback.jpeg'
+import img1 from "../images/quizback.jpg";
 import { FetchData } from "../data/QuizData";
 import { CheckOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -104,6 +104,7 @@ const Quizscreen = () => {
               fontSize: 20,
               opacity: 0.6,
               marginRight: 2,
+              fontFamily: "Noto Nastaliq Urdu",
             }}
           >
             {currentQuestionIndex + 1}/ 10
@@ -115,11 +116,11 @@ const Quizscreen = () => {
           style={{
             fontSize: 30,
             border: "2px solid #3b5998",
-            width: "80%",  
+            width: "80%",
             borderRadius: "20px",
 
-            // display: "flex",
-            justifyContent: "center"
+            fontFamily: "Noto Nastaliq Urdu",
+            justifyContent: "center",
           }}
         >
           {allQuestions[question]?.question}
@@ -138,7 +139,7 @@ const Quizscreen = () => {
               key={option}
               style={{
                 border: "2px solid #3b5998",
-                // width: "80%",  
+                // width: "80%",
 
                 justifyContent: "center",
                 borderWidth: "1px",
@@ -146,14 +147,14 @@ const Quizscreen = () => {
                   option == correctOption
                     ? "lightgreen"
                     : option == currentOptionSelected
-                      ? "#AA1115"
-                      : "",
+                    ? "#AA1115"
+                    : "",
                 backgroundColor:
                   option == correctOption
                     ? "lightgreen"
                     : option == currentOptionSelected
-                      ? "#AA1115"
-                      : "",
+                    ? "#AA1115"
+                    : "",
 
                 borderRadius: 20,
                 width: "80%",
@@ -262,20 +263,23 @@ const Quizscreen = () => {
         // backgroundImage: `url(${img1})`,
         // // backgroundRepeat: "no-repeat",
         // backgroundSize: "cover",
-
-
       }}
     >
       {currentQuestionIndex < 10 ? (
-        <div style={{
-          backgroundImage: `url(${img1})`,
-          // backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-  
-        }}>
-          <h1 style={{
-            fontFamily: 'Noto Nastaliq Urdu',
-          }}>سوالات</h1>
+        <div
+          style={{
+            backgroundImage: `url(${img1})`,
+            // backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <h1
+            style={{
+              fontFamily: "Noto Nastaliq Urdu",
+            }}
+          >
+            سوالات
+          </h1>
           {loading ? (
             <Loader
               type="Bars"

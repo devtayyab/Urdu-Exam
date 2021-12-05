@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Detailblog } from "../store/action/blog";
 export const Biography = (props) => {
   const location = useLocation();
-  console.log(location.query)
+  console.log(location.query);
 
   console.log("match", location.query);
   const state = useSelector((state) => state.blog[0]);
@@ -21,15 +21,15 @@ export const Biography = (props) => {
   // React.useEffect(() => {
   //   // dispatch(Detailblog(id));
   // }, [dispatch]);
-  var result =
-    location.query.detail.slice(0, 35) +
-    (location.query?.detail.length > 35 ? "..." : "");
+
   return (
     <>
-      {location.query == undefined ? (
-        <Redirect to={{
-          pathname : "/"
-        }}></Redirect>
+      {location?.query?.detail === undefined ? (
+        <Redirect
+          to={{
+            pathname: "/",
+          }}
+        ></Redirect>
       ) : (
         <>
           <div
@@ -60,7 +60,7 @@ export const Biography = (props) => {
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
-                  fontFamily :'Noto Nastaliq Urdu',
+                  fontFamily: "Noto Nastaliq Urdu",
                 }}
               >
                 <h3>{location.query?.title}</h3>
@@ -77,7 +77,7 @@ export const Biography = (props) => {
                   fontSize: "10px",
                 }}
               >
-                {location.query?.dob} 
+                {location.query?.dob}
               </p>
             </div>
           </div>
@@ -90,7 +90,8 @@ export const Biography = (props) => {
                 color: "grey",
               }}
             >
-              {result}
+              {location.query.detail.slice(0, 35) +
+                (location.query?.detail.length > 35 ? "..." : "")}
             </p>
           </div>
           <BasicTabs data={location.query}></BasicTabs>

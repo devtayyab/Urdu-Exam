@@ -18,12 +18,12 @@ const Classscreen = () => {
   const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.classdata.reverse());
-  console.log(state);
+
   useEffect(() => {
     dispatch(Classget());
   }, [dispatch]);
   const allQuestions = state;
-  console.log("aaa", allQuestions);
+ 
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
     setCurrentOptionSelected(selectedOption);

@@ -12,7 +12,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import FacebookRoundedIcon from "@material-ui/icons/Facebook";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import YouTubeIcon from '@material-ui/icons/YouTube';
+
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import SimpleBottomNavigation from "../components/tabbar";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,14 +32,23 @@ export default function ContactUs() {
 
   return (
     <div className={classes.root}>
-      <h1 style={{
-        fontFamily: 'serif',
-        textAlign: 'center'
-      }}>Contact Us</h1>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={5} style={{
-          margin: 30
-        }}>
+      <h1
+        style={{
+          fontFamily: "serif",
+          textAlign: "center",
+        }}
+      >
+        Contact Us
+      </h1>
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          sm={5}
+          style={{
+            margin: 30,
+          }}
+        >
           <Slide right>
             <form aria-controls>
               <Box
@@ -49,10 +59,21 @@ export default function ContactUs() {
                 noValidate
                 autoComplete="off"
               >
-
-                <TextField id="standard-basic" label="Name" variant="standard" />
-                <TextField id="standard-basic" label="phone" variant="standard" />
-                <TextField id="standard-basic" label="Subject" variant="standard" />
+                <TextField
+                  id="standard-basic"
+                  label="Name"
+                  variant="standard"
+                />
+                <TextField
+                  id="standard-basic"
+                  label="phone"
+                  variant="standard"
+                />
+                <TextField
+                  id="standard-basic"
+                  label="Subject"
+                  variant="standard"
+                />
               </Box>
               <TextField
                 id="standard-multiline-static"
@@ -68,7 +89,7 @@ export default function ContactUs() {
           </Slide>
         </Grid>
 
-        <Grid item xs={12} sm={5} style={{marginTop: "15px"}}>
+        <Grid item xs={12} sm={5} style={{ marginTop: "15px" }}>
           <Slide left>
             <Paper
               className={classes.paper}
@@ -90,14 +111,19 @@ export default function ContactUs() {
                 </p>
                 <p>+92 302 2605093</p>
                 <p>onlineurduexam@gmail.com</p>
+
+                <p>www.urduexamonline.com</p>
               </Bounce>
               <div>
                 <a href="https://www.facebook.com/urduexamonline/?ref=pages_you_manage">
-                  <FacebookRoundedIcon ></FacebookRoundedIcon></a>
-                  <a href="https://www.youtube.com/channel/UCdJhd4WukYjF97ChHlL9dgQ">
-                  <YouTubeIcon color="action"></YouTubeIcon></a>
+                  <FacebookRoundedIcon></FacebookRoundedIcon>
+                </a>
+                <a href="https://www.youtube.com/channel/UCdJhd4WukYjF97ChHlL9dgQ">
+                  <YouTubeIcon color="action"></YouTubeIcon>
+                </a>
                 <a href="mailto: onlineurduexam@gmail.com">
-                  <MailOutlineIcon color="action"></MailOutlineIcon></a>
+                  <MailOutlineIcon color="action"></MailOutlineIcon>
+                </a>
               </div>
             </Paper>
           </Slide>

@@ -21,14 +21,14 @@ export default function PoetList() {
     dispatch(Blogget());
   }, [dispatch]);
   const state = useSelector((state) => state.blog);
-  console.log("poetlist", state);
+
   return (
     <div>
       <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <Navbar />
         {state.map((e) => (
           <>
-            {console.log("eeeeee", e)}
+        
             <ListItem alignItems="flex-start">
               <Button>
                 <ListItemAvatar>

@@ -5,7 +5,7 @@ export const Classadd =(quiz)=>{
     return( async (dispatch)=>{
 
             const  {data} = await axios.post(`${uri}`,quiz)
-                console.log(data)
+              
             dispatch({
                 type: "ADD",
                 payload : data

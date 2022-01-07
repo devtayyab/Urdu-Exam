@@ -42,25 +42,29 @@ export default function Poet() {
         سوانحی خاکے
       </h5>
       {state.map((e) => (
-        
         <div
           style={{
-            display: "inline-block",
+            display: "inline-flex",
             color: "white",
             textAlign: "center",
             padding: "4px",
             textDecoration: "none",
+            height: "200px",
           }}
         >
-          {console.log("very blog",e)}
           <Link
+            style={
+              {
+                textDecoration: "none",
+              }
+            }
             to={{
               pathname: `/biography/${e.blogs?._id}`,
               query: {
                 title: e?.blogs?.title,
                 dob: e?.blogs?.dob,
                 detail: e?.blogs?.detail,
-                subtitle: e.blogs?.title,
+                subtitle: e?.blogs?.subtitle,
                 imagefile: e?.imagefile,
                 gazzal: e?.gazzal,
                 nazm: e?.nazm,
@@ -69,7 +73,7 @@ export default function Poet() {
           >
             {/* <Link to={{path}`/biography/${e.blogs._id, e}`} params={{ testvalue: e }}> */}
             <Avatar
-              src={e.imagefile}
+              src={e?.imagefile}
               style={{
                 width: "100px",
                 height: "100px",
@@ -79,11 +83,14 @@ export default function Poet() {
             <p
               style={{
                 color: "black",
+                textDecoration: "none",
+                fontFamily: "Noto Nastaliq Urdu",
+                margin :'4px'
               }}
             >
-              {e.blogs.subtitle}, {e.blogs.title} 
+              {e?.blogs?.title}
               <br />
-              {e.blogs.dob}
+              {e?.blogs?.subtitle} || {e?.blogs?.dob}
             </p>
           </Link>
         </div>

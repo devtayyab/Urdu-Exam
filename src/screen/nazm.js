@@ -35,7 +35,7 @@ export default function Nazm() {
               margin: "4px",
               marginTop: "8px",
               color: "grey",
-              lineHeight: 4.6,
+              lineHeight: 2.6,
               fontFamily: "Noto Nastaliq Urdu",
               textDecoration: "none"
             }}

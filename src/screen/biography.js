@@ -10,13 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Detailblog } from "../store/action/blog";
 export const Biography = (props) => {
   const location = useLocation();
-  console.log(location.query);
 
-  console.log("match", location.query);
+
   const state = useSelector((state) => state.blog[0]);
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log("id");
+
 
   // React.useEffect(() => {
   //   // dispatch(Detailblog(id));

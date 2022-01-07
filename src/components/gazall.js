@@ -12,10 +12,10 @@ const style = {
 
 export default function Gazzal(gazal) {
   const gazzalls = gazal.gazzal;
-  console.log(gazzalls);
+
   return (
     <List sx={style} component="nav" aria-label="mailbox folders">
-      {gazzalls.map((v, i) => (
+      {gazzalls?.map((v, i) => (
         <div>
           <Link
             to={{
@@ -30,10 +30,16 @@ export default function Gazzal(gazal) {
             }}
           >
             <ListItem button>
+                  {/* {location.query.detail.slice(0, 35) +
+                (location.query?.detail.length > 35 ? "..." : "")} */}
               <ListItemText
-                primary={v?.gazzal > 50 ? v.gazzal.slice(0, 50) : v?.gazzal}
+
+                // primary={v?.gazzal > 50 ? v.gazzal.slice(0, 50) : v?.gazzal}
                 style={{  textDecoration: "none"}}
-              />
+              >
+                <p>  {v?.gazzal.slice(0, 35) }
+               </p>
+              </ListItemText>
             </ListItem>
             <Divider />
           </Link>

@@ -15,15 +15,16 @@ export default function SimpleBottomNavigation() {
   return (
     <Box
     style={{
-      marginTop:60,
+        marginTop: 60,
+      maxWidth: "100%"
     }}
     >
       <Paper
         style={{
+          width: "100%",
           position: "fixed",
           bottom: 0,
-
-          width: "100%",
+     
         }}
         elevation={3}
       >

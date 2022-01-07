@@ -6,8 +6,11 @@ import { Slideget } from "../store/action/blog";
 import { storages } from "../config/config";
 export const Slider = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.slide);
-  console.log("slide", state);
+  const state = useSelector((state) => state?.slide);
+ 
+
+  var selectedshair = state.slice(Math.max(state.length-9, 0))
+ 
   useEffect(() => {
     dispatch(Slideget());
   }, [dispatch]);
@@ -21,9 +24,9 @@ export const Slider = () => {
       useKeyboardArrows
       showStatus={false}
     >
-      {state.map((e, i) => (
+      {selectedshair.map((e, i) => (
         <div key={i}>
-          <img alt="" src={e.imagefile} height={250} />
+          <img alt="" src={e.imagefile} height={280} />
         </div>
       ))}
     </Carousel>

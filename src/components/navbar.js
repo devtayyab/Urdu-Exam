@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   var currentdate = new Date();
   var datetime = currentdate.getHours();
-  console.log("time", datetime);
+
   var direction= datetime > 7 && datetime < 8  ? "class" : "noclass"
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);

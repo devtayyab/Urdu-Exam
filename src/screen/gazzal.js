@@ -4,7 +4,7 @@ export default function Gazal() {
   const location = useLocation();
 
   const gazzal = location?.query?.gazzal;
-  var res = gazzal.replaceAll(",", "\n");
+  var res = gazzal?.replaceAll(",", "\n");
   return (
     <>
       {location.query == undefined ? (
@@ -27,7 +27,7 @@ export default function Gazal() {
               margin: "4px",
               marginTop: "8px",
               color: "grey",
-              lineHeight: 4.6,
+              lineHeight: 2.6,
               fontFamily: "Noto Nastaliq Urdu",
               textDecoration: "none",
             }}

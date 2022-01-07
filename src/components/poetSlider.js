@@ -12,8 +12,8 @@ useEffect(()=>{
 
   dispatch(Shairget())
 }, [dispatch])
-const shair = useSelector(state => state.shair)
-console.log("Shair", shair)
+const shair = useSelector(state => state?.shair)
+var selectedshair = shair.slice(Math.max(0, shair.length-10))
 return(
  <div>
     <p
@@ -39,7 +39,7 @@ return(
   >
     
 
- {shair.map((e,i)=><>
+ {selectedshair.map((e,i)=><>
   <Roll left>
     <div>
   <p

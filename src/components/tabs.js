@@ -41,9 +41,10 @@ export default function BasicTabs({ data }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log("tabdata", data);
+  
   };
-
+  var alldata = data?.detail;
+  var details = alldata.replaceAll("#", "\n");
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -59,18 +60,22 @@ export default function BasicTabs({ data }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <p
-          style={{
-            textAlign: "justify",
-            padding: "2px",
-            margin: "4px",
-
-            lineHeight: 2.5,
-            wordSpacing: "1px",
-            fontFamily: "Noto Nastaliq Urdu",
-          }}
-        >
-          {data?.detail}
+        <p style={{}}>
+          <pre
+            style={{
+              textAlign: "right",
+              padding: "2px",
+              margin: "4px",
+              textDecoration: "none",
+              lineHeight: 2.5,
+              wordSpacing: "1px",
+              fontFamily: "Noto Nastaliq Urdu",
+              whiteSpace: "pre-line",
+              display: "flex",
+            }}
+          >
+            {details}
+          </pre>
         </p>
       </TabPanel>
       <TabPanel
@@ -83,7 +88,7 @@ export default function BasicTabs({ data }) {
       >
         <p
           style={{
-            textAlign: "justify",
+            textAlign: "center",
             padding: "2px",
             margin: "4px",
             color: "grey",

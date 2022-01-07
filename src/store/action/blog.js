@@ -6,12 +6,12 @@ export const Quizget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "quiz"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+   
       const quizs = [];
       querySnapshot.forEach((doc) => {
         quizs.push(doc.data());
       });
-      console.log("Current cities in CA: ", quizs);
+    
       // const { data } = await axios.get(`${uri}/quiz`);
       // console.log("action", data);
       dispatch({
@@ -25,13 +25,13 @@ export const Blogget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "blog"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+    
       const classq = [];
       querySnapshot.forEach((doc) => {
         classq.push(doc.data());
         
       });
-      console.log("blogs", classq);
+     
 
       dispatch({
         type: "BLOG",
@@ -44,12 +44,12 @@ export const Classget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "class"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+    
       const classq = [];
       querySnapshot.forEach((doc) => {
         classq.push(doc.data());
       });
-      console.log("Current cities in CA: ", classq);
+    
       // const { data } = await axios.get(`${uri}/class`);
       // console.log("action", data);
       dispatch({
@@ -63,12 +63,12 @@ export const Lafzsget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "lafz"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+  
       const lafzs = [];
       querySnapshot.forEach((doc) => {
         lafzs.push(doc.data());
       });
-      console.log("Current cities in CA: ", lafzs);
+    
       dispatch({
         type: "LAFZ",
         payload: lafzs,
@@ -89,12 +89,12 @@ export const Slideget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "slide"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+
       const cities = [];
       querySnapshot.forEach((doc) => {
         cities.push(doc.data());
       });
-      console.log("Current cities in CA: ", cities);
+
       dispatch({
         type: "SLIDE",
         payload: cities,
@@ -106,12 +106,12 @@ export const Shairget = () => {
   return async (dispatch) => {
     const q = query(collection(db, "shair"));
     onSnapshot(q, (querySnapshot) => {
-      console.log("iddd", querySnapshot);
+     
       const cities = [];
       querySnapshot.forEach((doc) => {
         cities.push(doc.data());
       });
-      console.log("Current cities in CA: ", cities);
+    
       dispatch({
         type: "SHAIR",
         payload: cities,
@@ -122,7 +122,7 @@ export const Shairget = () => {
   };
 };
 export const Detailblog = (id) => {
-  console.log("action" + id);
+
   return async (dispatch) => {
     try {
       const { data } = await axios.post(`${uri}/blog/${id}`, { id });
@@ -131,7 +131,7 @@ export const Detailblog = (id) => {
         payload: data,
       });
     } catch (error) {
-      console.log(error.message);
+    
     }
   };
 };

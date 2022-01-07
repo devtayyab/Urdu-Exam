@@ -14,7 +14,7 @@ export default function Nazamm(nazm) {
   const nazzms = nazm?.nazm;
   return (
     <List sx={style} component="nav" aria-label="mailbox folders">
-      {nazzms.map((v, i) => (
+      {nazzms?.map((v, i) => (
         <div>
           <Link
             style={{
@@ -30,9 +30,10 @@ export default function Nazamm(nazm) {
           >
             <ListItem button>
               <ListItemText
-                primary={v?.nazm > 50 ? v.nazm.slice(0, 50) : v.nazm}
+                // primary={v?.nazm > 50 ? v.nazm.slice(0, 50) : v.nazm}
                 style={{ textDecoration: "none" }}
               />
+              <p> {v?.nazm.slice(0, 35) } </p>
             </ListItem>
             <Divider />
           </Link>

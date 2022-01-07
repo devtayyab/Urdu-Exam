@@ -22,7 +22,7 @@ const Quizscreen = () => {
   const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.quizdata);
-  console.log(state);
+ 
   useEffect(() => {
     dispatch(Quizget());
     setloading(false);

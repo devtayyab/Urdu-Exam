@@ -12,10 +12,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginTop: theme.spacing(2),
+    width: '100%'
   },
   paper: {
     padding: theme.spacing(1),
+    maxwidth: '100%',
     textAlign: "center",
+    justifyContent: "center",
     color: theme.palette.text.secondary,
   },
 }));
@@ -24,13 +27,17 @@ export default function Griditem() {
   const classes = useStyles();
   var currentdate = new Date();
   var datetime = currentdate.getHours();
-  console.log("time", datetime);
-  var direction= datetime > 7 && datetime < 8  ? "class" : "noclass"
-  console.log(direction)
+
+  var direction= datetime > 19 && datetime < 20  ? "class" : "noclass"
+
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+      <Grid container style={{
+        padding :"10px"
+      }}>
+        <Grid item xs={12} sm={6} style={{
+          padding : "5px"
+        }}>
           <Slide right>
             <Paper
               className={classes.paper}
@@ -79,7 +86,7 @@ export default function Griditem() {
           </Slide>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} style={{ padding : "5px"}}>
           <Slide left>
             <Paper
               className={classes.paper}

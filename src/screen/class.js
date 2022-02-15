@@ -294,7 +294,7 @@ const Classscreen = () => {
               }}
             >
               <p style={{ fontSize: 30, fontWeight: "bold" }}>
-                {score > allQuestions.length / 2 ? "Congratulations!" : "Oops!"}
+                {score > 100 / 2 ? "Congratulations!" : "Oops!"}
               </p>
 
               <div
@@ -308,10 +308,10 @@ const Classscreen = () => {
                 <p
                   style={{
                     fontSize: 30,
-                    color: score > allQuestions.length / 2 ? "green" : "red",
+                    color: score > 100 / 2 ? "green" : "red",
                   }}
                 >
-                  {score} / {allQuestions.length}
+                  {score} / 100
                 </p>
               </div>
               {/* Retry Quiz button */}
@@ -329,7 +329,7 @@ const Classscreen = () => {
                     fontSize: 20,
                   }}
                 >
-                  Retry Quiz
+                  Retry Class
                 </p>
               </Button>
             </div>

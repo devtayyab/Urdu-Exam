@@ -103,7 +103,7 @@ const Classscreen = () => {
               marginRight: 2,
             }}
           >
-            {currentQuestionIndex + 1}/ 10
+            {currentQuestionIndex + 1}/ 100
           </p>
         </div>
 
@@ -249,7 +249,7 @@ const Classscreen = () => {
         justifyContent: "center",
       }}
     >
-      {currentQuestionIndex < 10 ? (
+      {currentQuestionIndex < 100 ? (
         <div  style={{
           backgroundImage: `url(${img1})`,
           // backgroundRepeat: "no-repeat",

@@ -28,7 +28,7 @@ export default function Griditem() {
   var currentdate = new Date();
   var datetime = currentdate.getHours();
 
-  var direction= datetime > 19 && datetime < 20  ? "class" : "noclass"
+  var direction= datetime > 18 && datetime < 20  ? "class" : "noclass"
 
   return (
     <div className={classes.root}>

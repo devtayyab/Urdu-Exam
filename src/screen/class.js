@@ -1,12 +1,11 @@
-import { Button, Card, Paper } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
-import img1 from "../images/quizback.jpg";
-import { FetchData } from "../data/QuizData";
+import { Button } from "@material-ui/core";
 import { CheckOutlined } from "@material-ui/icons";
+import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Classget, Quizget } from "../store/action/blog";
 import uniqueRandom from "unique-random";
+import img1 from "../images/quizback.jpg";
+import { Classget } from "../store/action/blog";
 const Classscreen = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState(null);
@@ -17,13 +16,13 @@ const Classscreen = () => {
   const [showScoreModal, setShowScoreModal] = useState(false);
   const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.classdata.reverse());
-
+  const state = useSelector((state) => state.classdata);
+  var selectedshair = state.slice(Math.max(0, state.length-100))
   useEffect(() => {
     dispatch(Classget());
   }, [dispatch]);
-  const allQuestions = state;
- 
+  const allQuestions = selectedshair;
+
   const validateAnswer = (selectedOption) => {
     let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
     setCurrentOptionSelected(selectedOption);
@@ -36,16 +35,19 @@ const Classscreen = () => {
     // Show Next Button
     setShowNextButton(true);
   };
+  let i = 0;
   const handleNext = () => {
     if (currentQuestionIndex == allQuestions.length - 1) {
+      console.log(allQuestions[i])
       // Last Question
       // Show Score Modal
       setShowScoreModal(true);
     } else {
-      const random = uniqueRandom(1, state.length - 1);
+      i += 1;
       setCurrentQuestionIndex(currentQuestionIndex + 1);
 
-      setquestion(random());
+      setquestion(i);
+      console.log(question);
       setCurrentOptionSelected(null);
       setCorrectOption(null);
       setIsOptionsDisabled(false);
@@ -58,13 +60,6 @@ const Classscreen = () => {
     }, 10000);
     return () => clearTimeout(timer);
   });
-  //     Animated.timing(progress, {
-  //         toValue: currentQuestionIndex+1,
-  //         duration: 1000,
-  //         useNativeDriver: false
-  //     }).start();
-  // }
-
   const restartQuiz = () => {
     setShowScoreModal(false);
 
@@ -131,9 +126,9 @@ const Classscreen = () => {
               style={{
                 borderWidth: 2,
                 borderColor:
-                  option == correctOption
+                  option === correctOption
                     ? "green"
-                    : option == currentOptionSelected
+                    : option === currentOptionSelected
                     ? "red"
                     : "",
                 backgroundColor:
@@ -250,11 +245,13 @@ const Classscreen = () => {
       }}
     >
       {currentQuestionIndex < 100 ? (
-        <div  style={{
-          backgroundImage: `url(${img1})`,
-          // backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}>
+        <div
+          style={{
+            backgroundImage: `url(${img1})`,
+            // backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <h1>Live Class</h1>
           {/* ProgressBar */}
           {/* { renderProgressBar() } */}

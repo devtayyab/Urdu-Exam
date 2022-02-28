@@ -4,6 +4,7 @@ import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import uniqueRandom from "unique-random";
+import Loader from "react-loader-spinner";
 import img1 from "../images/quizback.jpg";
 import { Classget } from "../store/action/blog";
 const Classscreen = () => {
@@ -14,17 +15,18 @@ const Classscreen = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
+  const [loading, setloading] = useState(true);
   const [question, setquestion] = useState(0);
   const dispatch = useDispatch();
   const state = useSelector((state) => state.classdata);
-  var selectedshair = state.slice(Math.max(0, state.length-100))
+ 
   useEffect(() => {
     dispatch(Classget());
+    setloading(false);
   }, [dispatch]);
-  const allQuestions = selectedshair;
-
+  const allQuestions = state;
   const validateAnswer = (selectedOption) => {
-    let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
+    let correct_option = allQuestions[question]["correct_option"];
     setCurrentOptionSelected(selectedOption);
     setCorrectOption(correct_option);
     setIsOptionsDisabled(true);
@@ -35,31 +37,28 @@ const Classscreen = () => {
     // Show Next Button
     setShowNextButton(true);
   };
-  let i = 0;
   const handleNext = () => {
     if (currentQuestionIndex == allQuestions.length - 1) {
-      console.log(allQuestions[i])
       // Last Question
       // Show Score Modal
       setShowScoreModal(true);
     } else {
-      i += 1;
+      const random = uniqueRandom(1, state.length - 1);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
 
-      setquestion(i);
-      console.log(question);
+      setquestion(random());
       setCurrentOptionSelected(null);
       setCorrectOption(null);
       setIsOptionsDisabled(false);
       setShowNextButton(false);
     }
   };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      handleNext();
-    }, 10000);
-    return () => clearTimeout(timer);
-  });
+  //     Animated.timing(progress, {
+  //         toValue: currentQuestionIndex+1,
+  //         duration: 1000,
+  //         useNativeDriver: false
+  //     }).start();
+  // }
   const restartQuiz = () => {
     setShowScoreModal(false);
 
@@ -82,12 +81,18 @@ const Classscreen = () => {
       <div
         style={{
           marginVertical: 40,
+          padding: "10px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          // width: "80%"
         }}
       >
         {/* Question Counter */}
         <div
           style={{
-            flexDirection: "row",
+            // flexDirection: "row",
             alignItems: "flex-end",
           }}
         >
@@ -96,6 +101,7 @@ const Classscreen = () => {
               fontSize: 20,
               opacity: 0.6,
               marginRight: 2,
+              fontFamily: "Noto Nastaliq Urdu",
             }}
           >
             {currentQuestionIndex + 1}/ 100
@@ -106,10 +112,15 @@ const Classscreen = () => {
         <p
           style={{
             fontSize: 30,
+            border: "2px solid #3b5998",
+            width: "80%",
+            borderRadius: "20px",
+
             fontFamily: "Noto Nastaliq Urdu",
+            justifyContent: "center",
           }}
         >
-          {allQuestions[currentQuestionIndex]?.question}
+          {allQuestions[question]?.question}
         </p>
       </div>
     );
@@ -117,26 +128,30 @@ const Classscreen = () => {
   const renderOptions = () => {
     return (
       <div>
-        {allQuestions[currentQuestionIndex]?.options.map((option) => (
+        {allQuestions[question]?.options.map((option) => (
           <div>
             <Button
               onClick={() => validateAnswer(option)}
               disabled={isOptionsDisabled}
               key={option}
               style={{
-                borderWidth: 2,
+                border: "2px solid #3b5998",
+                // width: "80%",
+
+                justifyContent: "center",
+                borderWidth: "1px",
                 borderColor:
-                  option === correctOption
-                    ? "green"
-                    : option === currentOptionSelected
-                    ? "red"
-                    : "",
+                  option == correctOption
+                    ? "lightgreen"
+                    : option == currentOptionSelected
+                      ? "#AA1115"
+                      : "",
                 backgroundColor:
                   option == correctOption
-                    ? "green"
+                    ? "lightgreen"
                     : option == currentOptionSelected
-                    ? "red"
-                    : "",
+                      ? "#AA1115"
+                      : "",
 
                 borderRadius: 20,
                 width: "80%",
@@ -152,7 +167,7 @@ const Classscreen = () => {
                 <div
                   style={{
                     borderRadius: 30 / 2,
-                    backgroundColor: "green",
+                    backgroundColor: "lihtgreen",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -168,7 +183,7 @@ const Classscreen = () => {
                 <div
                   style={{
                     borderRadius: 30 / 2,
-                    backgroundColor: "red",
+                    backgroundColor: "#AA1115",
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -190,23 +205,27 @@ const Classscreen = () => {
       </div>
     );
   };
-  const renderNextButton = () => {
-    if (showNextButton) {
-      return (
-        <Button
-          onClick={handleNext}
-          style={{
-            width: "80%",
-            borderRadius: 20,
-          }}
-        >
-          <p style={{ fontSize: 20, textAlign: "center" }}>Next</p>
-        </Button>
-      );
-    } else {
-      return null;
-    }
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => {handleNext()}, 10000);
+    return () => clearTimeout(timer);
+  }, [handleNext]);
+  // const renderNextButton = () => {
+  //   if (showNextButton) {
+  //     return (
+  //       <Button
+  //         onClick={handleNext}
+  //         style={{
+  //           width: "80%",
+  //           borderRadius: 20,
+  //         }}
+  //       >
+  //         <p style={{ fontSize: 20, textAlign: "center" }}>Next</p>
+  //       </Button>
+  //     );
+  //   } else {
+  //     return null;
+  //   }
+  // };
 
   // const [progress, setProgress] = useState(new Animated.Value(0));
   // const progressAnim = progress.interpolate({
@@ -242,6 +261,9 @@ const Classscreen = () => {
         flex: 1,
         textAlign: "center",
         justifyContent: "center",
+        // backgroundImage: `url(${img1})`,
+        // // backgroundRepeat: "no-repeat",
+        // backgroundSize: "cover",
       }}
     >
       {currentQuestionIndex < 100 ? (
@@ -252,25 +274,30 @@ const Classscreen = () => {
             backgroundSize: "cover",
           }}
         >
-          <h1>Live Class</h1>
-          {/* ProgressBar */}
-          {/* { renderProgressBar() } */}
-          {/* Question */}
-          {renderQuestion()}
-          {/* Options */}
-          {renderOptions()}
-          {/* Next Button */}
-
-          {/* {
-            (limitedInterval = setInterval(() => {
-              handleNext();
-
-              if (currentQuestionIndex > 10) {
-                clearInterval(limitedInterval);
-                console.log("interval cleared!");
-              }
-            }, 30000))
-          } */}
+          <h1
+            style={{
+              fontFamily: "Noto Nastaliq Urdu",
+            }}
+          >
+            سوالات
+          </h1>
+          {loading ? (
+            <Loader
+              type="Bars"
+              color="Blue"
+              height={100}
+              width={100}
+              timeout={5000} //3 secs
+            />
+          ) : (
+            <>
+              {renderQuestion()}
+              {/* Options */}
+              {renderOptions()}
+              {/* Next Button */}
+              {/* {renderNextButton()} */}
+            </>
+          )}
         </div>
       ) : (
         <>
@@ -305,7 +332,7 @@ const Classscreen = () => {
                 <p
                   style={{
                     fontSize: 30,
-                    color: score > 100 / 2 ? "green" : "red",
+                    color: score > allQuestions.length / 2 ? "green" : "red",
                   }}
                 >
                   {score} / 100
@@ -326,7 +353,7 @@ const Classscreen = () => {
                     fontSize: 20,
                   }}
                 >
-                  Retry Class
+                  Retry Quiz
                 </p>
               </Button>
             </div>

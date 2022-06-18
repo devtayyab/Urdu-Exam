@@ -45,7 +45,7 @@ const Classscreen = () => {
       const random = uniqueRandom(1, state.length - 1);
       setCurrentQuestionIndex(currentQuestionIndex + 1);
 
-      setquestion(random());
+      // setquestion(random());
       setCurrentOptionSelected(null);
       setCorrectOption(null);
       setIsOptionsDisabled(false);

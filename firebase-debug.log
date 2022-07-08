@@ -1,0 +1,29 @@
+[debug] [2022-07-08T02:41:23.621Z] ----------------------------------------------------------------------
+[debug] [2022-07-08T02:41:23.625Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-07-08T02:41:23.627Z] CLI Version:   11.2.1
+[debug] [2022-07-08T02:41:23.627Z] Platform:      win32
+[debug] [2022-07-08T02:41:23.627Z] Node Version:  v16.14.2
+[debug] [2022-07-08T02:41:23.629Z] Time:          Fri Jul 08 2022 07:41:23 GMT+0500 (Pakistan Standard Time)
+[debug] [2022-07-08T02:41:23.630Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-08T02:41:23.761Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-08T02:41:23.762Z] > authorizing via signed-in user (gujjartayyab9494@gmail.com)
+[debug] [2022-07-08T02:41:23.763Z] [iam] checking project onlineurduexams for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-07-08T02:41:23.767Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/onlineurduexams:testIamPermissions [none]
+[debug] [2022-07-08T02:41:23.768Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/onlineurduexams:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-07-08T02:41:25.837Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/onlineurduexams:testIamPermissions 200
+[debug] [2022-07-08T02:41:25.838Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/onlineurduexams:testIamPermissions {}
+[debug] [2022-07-08T02:41:25.839Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project onlineurduexams:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-07-08T02:41:25.842Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/onlineurduexams [none]
+[debug] [2022-07-08T02:41:26.707Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/onlineurduexams 403
+[debug] [2022-07-08T02:41:26.708Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/onlineurduexams {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-07-08T02:41:26.711Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-07-08T02:41:27.405Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\awais\AppData\Roaming\nvm\v16.14.2\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\awais\AppData\Roaming\nvm\v16.14.2\node_modules\firebase-tools\lib\apiv2.js:287:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project onlineurduexams. Please make sure the project exists and your account has permission to access it.
